@@ -1,0 +1,13 @@
+----------------8<-------------[ START TEST 
+        💻 TEST
+./a.out "Ceci permet de decouvrir le fonctionnement de ton ft_atoi."         🔎 YOUR OUTPUT:
+../../rendu/ft_atoi/ft_atoi.c: In function ‘ft_atoi’:
+../../rendu/ft_atoi/ft_atoi.c:28:43: error: expected ‘;’ before ‘string’
+   28 |   result = (result * 10) + (*string - '0')
+      |                                           ^
+      |                                           ;
+   29 |   string++;
+      |   ~~~~~~                                   
+
+        ❌ COMPILATION ERROR
+----------------8<------------- END TEST ]

@@ -1,0 +1,27 @@
+----------------8<-------------[ START TEST 
+        💻 TEST
+./a.out 
+        🔎 YOUR OUTPUT:
+../../rendu/first_word/first_word.c: In function ‘first_word’:
+../../rendu/first_word/first_word.c:24:44: error: expected ‘)’ before ‘string’
+   24 |  while ((string[i] != 9 && string[i] != 32) string[i])
+      |        ~                                   ^~~~~~~
+      |                                            )
+../../rendu/first_word/first_word.c:26:14: error: ‘$string’ undeclared (first use in this function); did you mean ‘string’?
+   26 |   write (1,  $string[i], 1);
+      |              ^~~~~~~
+      |              string
+../../rendu/first_word/first_word.c:26:14: note: each undeclared identifier is reported only once for each function it appears in
+../../rendu/first_word/first_word.c: In function ‘main’:
+../../rendu/first_word/first_word.c:36:11: warning: passing argument 2 of ‘write’ makes pointer from integer without a cast [-Wint-conversion]
+   36 |  write(1, '\n', 1);
+      |           ^~~~
+      |           |
+      |           int
+In file included from ../../rendu/first_word/first_word.c:13:
+/usr/include/unistd.h:366:45: note: expected ‘const void *’ but argument is of type ‘int’
+  366 | extern ssize_t write (int __fd, const void *__buf, size_t __n) __wur;
+      |                                 ~~~~~~~~~~~~^~~~~
+
+        ❌ COMPILATION ERROR
+----------------8<------------- END TEST ]

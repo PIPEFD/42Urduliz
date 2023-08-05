@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   first_word.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/05 16:31:48 by codespace         #+#    #+#             */
-/*   Updated: 2023/08/05 16:38:42 by codespace        ###   ########.fr       */
+/*   Created: 2023/08/05 17:13:43 by codespace         #+#    #+#             */
+/*   Updated: 2023/08/05 17:54:21 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-
-void first_word(char *string)
+int ft_atoi(const char *string)
 {
-	int i;
-	
-	i = 0;
+	int result;
+	int sign;
 
-	while (string[i] == 32 || string[i] == 9)
-	i++;
-	while ((string[i] != 9 && string[i] != 32) && string[i])
+	result = 0;
+	sign = 1;
+	while (*string == ' ' ||(*string >= 9 && *string <= 13))
+		string++;
+	if (*string == '-')
+		sign = -1;
+	if (*string == '-' || *string == '+')
+		string++;
+	while (*string >= '0' && *string <= '9')
 	{
-		write (1, &string[i], 1);
-		i++;
+		result = (result * 10) + (*string - '0');
+		string++;
 	}
-	
+	return (result * sign);
 }
-
-int main(int argc, char **argv)
-{
-	if(argc == 2)
-		first_word(argv[1]);
-	write(1, "\n", 1);
-	return (0);
-} 
