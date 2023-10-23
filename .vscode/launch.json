@@ -8,7 +8,7 @@
 			"type": "lldb",
 			"request": "launch",
 			"name": "Debug",
-			"program": "/workspaces/42Urduliz/Exam_42/Level_02/a.out",
+			"program": "/workspaces/42Urduliz/Push_Swap/push_swap",
 			"args": [],
 			"cwd": "${workspaceFolder}"
 		}

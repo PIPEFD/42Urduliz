@@ -6,11 +6,11 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 20:15:00 by codespace         #+#    #+#             */
-/*   Updated: 2023/08/08 20:26:16 by codespace        ###   ########.fr       */
+/*   Updated: 2023/10/19 08:32:09 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/ft_push_swap.h"
+#include "../includes/ft_push_swap.h"
 
 static int ft_input_lenght(int argc, char ***argv)
 {
@@ -35,14 +35,14 @@ static int  ft_argcount(char **tab)
         return (i);
         
 }
-int ft_input_to_args(int argc, char **argv)
+int ft_input_to_args(int argc, char ***argv)
 {
     char    *str;
-    char**  arg_list;
+    char   **arg_list;
     int     i;
     int     flag;
 
-    str = (char *)mallloc(sizeof(char) * (ft_input_leght(argc, argv) + 1));
+    str = (char *)malloc(sizeof(char) * (ft_input_lenght(argc, argv) + 1));
     if(!str)
         return (0);
     i = 0;
@@ -52,7 +52,7 @@ int ft_input_to_args(int argc, char **argv)
             if(flag == 0)
             {
                 str = ft_strcat(str, " ");
-                flag  =1;
+                flag = 1;
                 continue;
             }
             str = ft_strcat(str, *(*(argv)+ i++));

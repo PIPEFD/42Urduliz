@@ -6,17 +6,15 @@
 #    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/08 11:13:42 by codespace         #+#    #+#              #
-#    Updated: 2023/10/21 20:19:05 by codespace        ###   ########.fr        #
+#    Updated: 2023/10/18 21:20:42 by codespace        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 NAME		=	push_swap
 MAIN		=	ft_push_swap.c
 LIBFT		=	libft/libft.a
-INC			=	inc/
+INC			=	includes/
 SRC_DIR		=	src/
-
 
 CC			=	gcc -g3
 FLAGS		=	-Wall -Wextra -Werror

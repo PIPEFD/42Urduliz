@@ -6,42 +6,38 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/08 18:01:15 by codespace         #+#    #+#             */
-/*   Updated: 2023/08/08 18:14:38 by codespace        ###   ########.fr       */
+/*   Updated: 2023/10/21 20:35:42 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/ft_push_swap.h"
 
-#ifndef PR
-# define PR 0
-#endif
-
-
-static int ft_repetead(int argc, char **argv, int i);
+static int ft_repetead(int argc, char **argv, int i)
 {
     int j;
     int num;
-    
+
     num = ft_atoi(*(argv + i));
     j = i + 1;
     while (j < argc)
     {
         if(ft_atoi(*(argv + j)) == num)
+            return (1);
         j++;
     }
-    return (0);    
+    return (0);
 }
 
 static int ft_input_error(int argc, char **argv)
 {
     int i;
-    
+
     i = 1;
     while (i < argc)
     {
-            if(!ft_isint(*(argv + i)) || ft_repeated(argc, argv, i))
+            if(!ft_isint(*(argv + i)) || ft_repetead(argc, argv, i))
             {
-                ft_putstr_fd(RED, 2);
+                ft_putstr_fd(BLUE, 2);
                 ft_putstr_fd("Error\n",2);
                 return (1);
             }
@@ -61,28 +57,26 @@ static int ft_free_args(int i, char ***argv)
     return (2);
 }
 
-int main (int argc, char **argv)
+int	main(int argc, char **argv)
 {
-        t_intlst    *a;
-        t_intlst    *b;
-
-        if (argc > 1)
-        {
-                argc =  ft_input_to_args(argc, &argv);
-                if(argc == 0)
-                    return (ft_free_args(argc + 1,  &argv));
-                if (ft_input_error(argc, argv))
-                    return(ft_free_args(argc + 1, &argv));
-                a = ft_args_to_intlst(argc, argv);
-                b = NULL;
-                if (PR)
-                    ft_visualize_stacks(&a, &b);
-                ft_sort(&a, &b, argc - 1);
-                if(PR)
-                    ft_visualize_stacks(&a, &b);
-                ft_intlst_free(&a);
-                ft_intlst_free(&b);
-                ft_free_args(argc +1, &argv);
-        }
-        return (0);
+	t_intlst	*a;
+	t_intlst	*b;
+    
+	if (argc > 1)
+	{
+		argc = ft_input_to_args(argc, &argv);
+		if (argc == 0)
+			return (ft_free_args(argc + 1, &argv));
+		if (ft_input_error(argc, argv))
+            return (ft_free_args(argc + 1, &argv));
+        a = ft_args_to_intlst(argc, argv);
+        b = NULL;
+        ft_visualize_stacks(&a, &b);
+        ft_sort(&a, &b, argc - 1);
+        ft_visualize_stacks(&a, &b);
+        ft_intlst_free(&a);
+        ft_intlst_free(&b);
+        ft_free_args(argc + 1, &argv);
+    }
+	return (0);
 }
