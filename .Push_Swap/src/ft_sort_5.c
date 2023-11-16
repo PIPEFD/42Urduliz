@@ -1,32 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intlst_maxval.c                                 :+:      :+:    :+:   */
+/*   ft_sort_5.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/27 16:18:38 by codespace         #+#    #+#             */
-/*   Updated: 2023/11/07 19:09:58 by codespace        ###   ########.fr       */
+/*   Created: 2023/11/07 15:00:16 by codespace         #+#    #+#             */
+/*   Updated: 2023/11/07 15:03:16 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include ""
 
-#include "../../inc/libft.h"
+static void ft_pushtop_minmax(t_intlst **a, t_intlst **b, int n)
 
-int ft_intlst_maxval(t_intlst *lst)
+static void ft_pushback_minmax(t_intlst **a, t_intlst)
+
+
+void ft_sort_5(t_intlst **a, t_intlst **b, int n)
 {
-    int    max;
-
-    if (lst)
-    {
-        max = -2147483648;
-        while(lst)
-        {
-            if (lst->value > max)
-                max =lst->value;
-            lst = lst->next;
-        }
-        return (max);
-    }
-    return (0);
+    ft_pushtop_minmax(a, b, n);
+    ft_sort_3(a);
+    ft_pushback_minmax(a, b, n);    
 }

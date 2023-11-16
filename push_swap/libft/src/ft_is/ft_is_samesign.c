@@ -1,32 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intlst_maxval.c                                 :+:      :+:    :+:   */
+/*   ft_is_samesign.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/27 16:18:38 by codespace         #+#    #+#             */
-/*   Updated: 2023/11/07 19:09:58 by codespace        ###   ########.fr       */
+/*   Created: 2023/10/24 18:21:48 by codespace         #+#    #+#             */
+/*   Updated: 2023/10/24 19:41:04 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../../inc/libft.h"
 
-int ft_intlst_maxval(t_intlst *lst)
+int ft_is_samesign(int a, int b)
 {
-    int    max;
-
-    if (lst)
-    {
-        max = -2147483648;
-        while(lst)
-        {
-            if (lst->value > max)
-                max =lst->value;
-            lst = lst->next;
-        }
-        return (max);
-    }
-    return (0);
+    if((a >= 0 && b >= 0) || (a < 0 && b < 0))
+        return(1);
+    return(0);
 }

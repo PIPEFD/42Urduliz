@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intlst_maxval.c                                 :+:      :+:    :+:   */
+/*   ft_intlst_size.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/27 16:18:38 by codespace         #+#    #+#             */
-/*   Updated: 2023/11/07 19:09:58 by codespace        ###   ########.fr       */
+/*   Created: 2023/10/24 14:24:02 by codespace         #+#    #+#             */
+/*   Updated: 2023/10/24 19:40:59 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../../inc/libft.h"
 
-int ft_intlst_maxval(t_intlst *lst)
-{
-    int    max;
 
-    if (lst)
+size_t ft_intlst_size(t_intlst *lst)
+{
+    unsigned int    size;
+
+    size = 0;
+    while(lst)
     {
-        max = -2147483648;
-        while(lst)
-        {
-            if (lst->value > max)
-                max =lst->value;
-            lst = lst->next;
-        }
-        return (max);
+        size++;
+        lst = lst->next;
     }
-    return (0);
+    return(size);
 }

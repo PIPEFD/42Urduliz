@@ -6,15 +6,16 @@
 #    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/08/08 11:13:42 by codespace         #+#    #+#              #
-#    Updated: 2023/11/07 19:06:07 by codespace        ###   ########.fr        #
+#    Updated: 2023/11/06 22:25:37 by codespace        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+
 NAME		=	push_swap
-MAIN		=	ft_push_swap.c
+MAIN		=	push_swap.c
 LIBFT		=	libft/libft.a
 INC			=	includes/
-SRC_DIR		=	source/
+SRC_DIR		=	src/
 
 
 CC			=	gcc -g3
