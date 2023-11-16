@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/08 10:49:51 by codespace         #+#    #+#             */
-/*   Updated: 2023/10/24 20:40:34 by codespace        ###   ########.fr       */
+/*   Created: 2023/10/24 18:55:19 by codespace         #+#    #+#             */
+/*   Updated: 2023/10/24 20:49:34 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ void			ft_sb(t_intlst **b);
 void			ft_ss(t_intlst **a, t_intlst **b);
 void			ft_ra(t_intlst **a);
 void			ft_rb(t_intlst **b);
-void			ft_rr(t_intlst **a, t_intlst **b);
+void            ft_rr(t_intlst **a, t_intlst **b);
 void			ft_rra(t_intlst **a);
 void			ft_rrb(t_intlst **b);
 void			ft_rrr(t_intlst **a, t_intlst **b);
 void			ft_smart_rotate_a(t_intlst **a, int cost);
 void			ft_smart_rotate_b(t_intlst **b, int cost);
-void            ft_smart_rotate(t_intlst **a,  t_intlst **b, int cos_a, int cos_b);
+void			ft_smart_rotate(t_intlst **a, t_intlst **b, int c_a, int c_b);
 void			ft_sort(t_intlst **a, t_intlst **b, int n);
 void			ft_sort_2(t_intlst **lst);
 void			ft_sort_3(t_intlst **lst);
@@ -47,3 +47,25 @@ void			ft_intlst_rotate(t_intlst **lst);
 void			ft_intlst_swap(t_intlst **lst);
 
 #endif
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

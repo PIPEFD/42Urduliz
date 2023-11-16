@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intlst_maxval.c                                 :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/27 16:18:38 by codespace         #+#    #+#             */
-/*   Updated: 2023/11/07 19:09:58 by codespace        ###   ########.fr       */
+/*   Created: 2023/10/24 16:39:54 by codespace         #+#    #+#             */
+/*   Updated: 2023/10/24 19:41:32 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../../inc/libft.h"
 
-int ft_intlst_maxval(t_intlst *lst)
+size_t  ft_strlcpy(char *dst, const char *src, size_t size)
 {
-    int    max;
+    size_t i;
+    char    *pt_src;
 
-    if (lst)
+    pt_src = (char*)src;
+    i = 0;
+    if (size > 0)
     {
-        max = -2147483648;
-        while(lst)
+        while (pt_src[i] != '\0' && i < size - 1)
         {
-            if (lst->value > max)
-                max =lst->value;
-            lst = lst->next;
+            dst[i] = pt_src[i];
+            i++;
         }
-        return (max);
+        dst[i] = 0;
     }
-    return (0);
-}
+    while (src[i])
+        i++;
+    return (i);
+} 

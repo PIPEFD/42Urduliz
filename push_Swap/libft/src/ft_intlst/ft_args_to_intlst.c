@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intlst_maxval.c                                 :+:      :+:    :+:   */
+/*   ft_args_to_intlst.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/27 16:18:38 by codespace         #+#    #+#             */
-/*   Updated: 2023/11/07 19:09:58 by codespace        ###   ########.fr       */
+/*   Created: 2023/09/27 07:01:21 by codespace         #+#    #+#             */
+/*   Updated: 2023/10/29 16:52:47 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "../../inc/libft.h"
 
-int ft_intlst_maxval(t_intlst *lst)
+t_intlst  *ft_args_to_intlst(int argc, char **argv)
 {
-    int    max;
+    int         i;
+    t_intlst    *a;
+    t_intlst    *tmp;
 
-    if (lst)
+    i = 1;
+    while (i < argc)
     {
-        max = -2147483648;
-        while(lst)
+        if ( i == 1)
+            a = ft_intlst_new(ft_atoi((*(argv + i))));
+        else
         {
-            if (lst->value > max)
-                max =lst->value;
-            lst = lst->next;
-        }
-        return (max);
+
+            tmp = ft_intlst_new(ft_atoi((*(argv + i))));
+            ft_intlst_addback(&a, tmp);
+        }  
+        i++;
     }
-    return (0);
+    return (a);   
 }

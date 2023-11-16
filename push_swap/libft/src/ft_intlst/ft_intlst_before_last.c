@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_intlst_maxval.c                                 :+:      :+:    :+:   */
+/*   ft_intlst_before last.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/27 16:18:38 by codespace         #+#    #+#             */
-/*   Updated: 2023/11/07 19:09:58 by codespace        ###   ########.fr       */
+/*   Created: 2023/10/23 12:56:55 by codespace         #+#    #+#             */
+/*   Updated: 2023/10/24 19:40:39 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include  "../../inc/libft.h"
 
-#include "../../inc/libft.h"
-
-int ft_intlst_maxval(t_intlst *lst)
+t_intlst *ft_intlst_before_last(t_intlst *lst)
 {
-    int    max;
-
-    if (lst)
-    {
-        max = -2147483648;
-        while(lst)
-        {
-            if (lst->value > max)
-                max =lst->value;
-            lst = lst->next;
-        }
-        return (max);
-    }
-    return (0);
+    if(lst == NULL)
+        return (NULL);
+    while (lst->next->next)
+        lst = lst->next;
+    return(lst);
 }
