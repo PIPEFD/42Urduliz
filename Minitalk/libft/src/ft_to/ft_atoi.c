@@ -6,11 +6,11 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 07:57:09 by codespace         #+#    #+#             */
-/*   Updated: 2023/11/29 08:07:46 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/03 15:17:44 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../inc/libft.h"
 
 int ft_atoi(const char *str)
 {
@@ -21,8 +21,8 @@ int ft_atoi(const char *str)
     i = 0;
     sign = 1;
     number = 0;
-    while (str[i] == 9 || str[i] == 10 || str[i] == 11 || str[i] == 12)
-            || str[i] == 13 || str[i] == 32)
+    while (str[i] == 9 || str[i] == 10 || str[i] == 11 || str[i] == 12
+        || str[i] == 13 || str[i] == 32)
         i++;
     
     if (str[i] == '+' || str[i] == '-')
@@ -36,7 +36,5 @@ int ft_atoi(const char *str)
         number = (number * 10) + (str[i] - '0');
         i++;
     }
-    if (number > MAX_INT || number < MIN_INT)
-		return (0);
-	return (number * sign);
+    return (number * sign);
 }

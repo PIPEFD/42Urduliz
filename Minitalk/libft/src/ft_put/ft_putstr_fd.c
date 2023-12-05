@@ -6,13 +6,13 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 08:09:08 by codespace         #+#    #+#             */
-/*   Updated: 2023/11/29 08:15:37 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/03 15:12:24 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "../../inc/libft.h"
 
-char    ft_putstr_fd(char *str, int fd)
+size_t    ft_putstr_fd(char *str, int fd)
 {
     int i;
 

@@ -6,16 +6,16 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 20:20:11 by codespace         #+#    #+#             */
-/*   Updated: 2023/12/02 00:14:26 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/05 14:42:44 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <stdlib.h>
 # include <unistd.h>
-
-
+# include <signal.h>
 
 int				ft_atoi(const char *str);
 
