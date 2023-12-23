@@ -3,26 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 17:39:01 by dbonilla          #+#    #+#             */
-/*   Updated: 2023/12/22 09:05:34 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/23 19:09:43 by dbonilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fractol.h"
 
-int julia(t_complex z, t_complex c, int max_iter)
+int	julia(t_complex z, t_complex c, int max_iter)
 {
-    int iter = 0;
+	int	iter;	
 
-    while (iter < max_iter && (z.real * z.real + z.imag * z.imag) < 4)
-    {
-        double temp = z.real * z.real - z.imag * z.imag + c.real;
-        z.imag = 2 * z.real * z.imag + c.imag;
-        z.real = temp;
-        iter++;
-    }
+	iter = 0;
+	while (iter < max_iter && (z.real * z.real + z.imag * z.imag) < 4)
+	{
+		double temp = z.real * z.real - z.imag * z.imag + c.real;
+		z.imag = 2 * z.real * z.imag + c.imag;
+		z.real = temp;
+		iter++;
+	}	
 
     return iter;
 }

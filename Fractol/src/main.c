@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fractol.h                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/17 17:41:56 by dbonilla          #+#    #+#             */
-/*   Updated: 2023/12/23 21:01:27 by dbonilla         ###   ########.fr       */
+/*   Created: 2023/12/23 19:13:40 by dbonilla          #+#    #+#             */
+/*   Updated: 2023/12/23 20:55:41 by dbonilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../mlx/mlx.h"
-#include <math.h>
+#include "../inc/fractol.h"
 
-#ifndef FRACTOL_H
-#define FRACTOL_H
-
-#define WIDTH 1920
-#define HEIGHT 1080
-
-typedef struct s_complex
+int	main(void)
 {
-    double real;
-    double imag;
-} t_complex;
+	void	*mlx_ptr = mlx_init();
+	void *win_ptr = mlx_new_window(mlx_ptr, WIDTH, HEIGHT, "Mandelbrot Set");
 
+    draw_mandelbrot(mlx_ptr, win_ptr);
 
-int		mandelbrot(t_complex c, int max_iter);
-void	draw_mandelbrot(void *mlx_ptr, void *win_ptr);
-float	fast_inverse_sqrt(float x);
-void	draw_pixel(void *mlx_ptr, void *win_ptr, int x, int y, int color);
+    mlx_loop(mlx_ptr);
 
-
-#endif
+    return 0;
+}

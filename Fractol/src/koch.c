@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   koch.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 20:37:16 by dbonilla          #+#    #+#             */
-/*   Updated: 2023/12/22 08:15:09 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/23 19:08:22 by dbonilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fractol.h"
-
 
 void draw_koch_curve(void *mlx_ptr, void *win_ptr, t_point start, t_point end, int depth)
 {

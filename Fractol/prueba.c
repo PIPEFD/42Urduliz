@@ -6,7 +6,7 @@
 /*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/13 21:21:04 by dbonilla          #+#    #+#             */
-/*   Updated: 2023/12/17 18:23:59 by dbonilla         ###   ########.fr       */
+/*   Updated: 2023/12/23 19:17:10 by dbonilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int mandelbrot(t_complex c, int max_iter)
 
 void draw_mandelbrot(void *mlx_ptr, void *win_ptr)
 {
-    int max_iter = 100; // Puedes ajustar esto según tus necesidades
+    int max_iter = 100;
     double zoom = 0.004;
     t_complex offset = {-2, -1.5};
 
@@ -66,7 +66,6 @@ void draw_mandelbrot(void *mlx_ptr, void *win_ptr)
             t_complex c = {offset.real + x * zoom, offset.imag + y * zoom};
             int color = mandelbrot(c, max_iter);
 
-            // Puedes ajustar la lógica de color según tus preferencias
             int r = (color % 256) << 16;
             int g = (color % 256) << 8;
             int b = (color % 256);
@@ -75,7 +74,7 @@ void draw_mandelbrot(void *mlx_ptr, void *win_ptr)
     }
 }
 
-int main()
+int main(void)
 {
     void *mlx_ptr = mlx_init();
     void *win_ptr = mlx_new_window(mlx_ptr, WIDTH, HEIGHT, "Mandelbrot Set");
