@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+         #
+#    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/17 17:36:22 by dbonilla          #+#    #+#              #
-#    Updated: 2023/12/17 20:40:21 by dbonilla         ###   ########.fr        #
+#    Updated: 2023/12/22 08:16:31 by codespace        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,10 @@ NAME		=	fractol
 INC			=	inc/
 SRC_DIR		=	src/
 MLX			=	mlx/libmlx.a
-FLAGS_MLX	=  -Lmlx -lmlx -framework OpenGL -framework AppKit
+# FLAGS_MLX	=  -Lmlx -lmlx -framework OpenGL -framework AppKit
 
 CC			=	gcc -fsanitize=address -g3
-FLAGS		=	-Wall -Wextra -Werror
+FLAGS		=	-Wall -Wextra -Werror -Lmlx -lmlx -framework OpenGL -framework AppKit
 RM			=	rm -f
 
 SRC_FILES	=	src/draw_fractol.c \
@@ -46,7 +46,7 @@ WHITE = \033[0;97m
 all:		$(NAME)
 
 $(NAME):	$(MLX) $(OBJ)
-			@$(CC) -o $(NAME) $(FLAGS) $(FLAGS_MLX) $(OBJ) -I$(INC) $(MLX)
+			@$(CC) -o $(NAME) $(FLAGS) $(OBJ) -I$(INC) $(MLX)
 			@echo "$(GREEN)FRACT'OL COMPILED SUCCESFUL!$(DEF_COLOR)"			
 			
 			

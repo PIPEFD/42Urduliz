@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   mandelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 17:39:04 by dbonilla          #+#    #+#             */
-/*   Updated: 2023/12/17 20:25:07 by dbonilla         ###   ########.fr       */
+/*   Updated: 2023/12/22 08:14:55 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/fract'ol.h"
+#include "../inc/fractol.h"
 
 int mandelbrot(t_complex c, int max_iter)
 {
