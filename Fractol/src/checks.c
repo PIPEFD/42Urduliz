@@ -3,10 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   checks.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 18:08:00 by dbonilla          #+#    #+#             */
-/*   Updated: 2023/12/17 18:08:00 by dbonilla         ###   ########.fr       */
+/*   Updated: 2024/01/02 13:00:31 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "../inc/fractol.h"
+
 

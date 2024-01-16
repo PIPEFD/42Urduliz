@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 17:38:56 by dbonilla          #+#    #+#             */
-/*   Updated: 2023/12/22 08:08:03 by codespace        ###   ########.fr       */
+/*   Updated: 2023/12/24 11:10:52 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,11 @@ void draw_mandelbrot(void *mlx_ptr, void *win_ptr)
     int x;
     int y;
     x = 0;
-    y = 0;
     
-    while(x < WIDTH)
+    while(x++ < WIDTH)
     {
-        while (y < HEIGHT)
+        y = 0;
+        while (y++ < HEIGHT)
         {
 
 
@@ -42,9 +42,7 @@ void draw_mandelbrot(void *mlx_ptr, void *win_ptr)
         int g = (int)(255.0 * inv_sqrt_color);
         int b = (int)(255.0 * inv_sqrt_color);
         draw_pixel(mlx_ptr, win_ptr, x, y, r << 16 | g << 8 | b);
-        y++;
         }
-        x++;
     }
 }
 

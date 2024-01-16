@@ -6,7 +6,7 @@
 #    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/17 17:36:22 by dbonilla          #+#    #+#              #
-#    Updated: 2023/12/22 08:16:31 by codespace        ###   ########.fr        #
+#    Updated: 2024/01/02 12:59:42 by codespace        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,12 +18,13 @@ MLX			=	mlx/libmlx.a
 # FLAGS_MLX	=  -Lmlx -lmlx -framework OpenGL -framework AppKit
 
 CC			=	gcc -fsanitize=address -g3
-FLAGS		=	-Wall -Wextra -Werror -Lmlx -lmlx -framework OpenGL -framework AppKit
+FLAGS		=	-Wall -Wextra -Werror 
+# -Lmlx -lmlx -framework OpenGL -framework AppKit
 RM			=	rm -f
 
-SRC_FILES	=	src/draw_fractol.c \
-				src/fast_inverse_sqrt.c \
-				src/mandelbrot.c \
+SRC_FILES	=	draw_fractol.c \
+				fast_inverse_sqrt.c \
+				mandelbrot.c
 SRC	=	$(addprefix $(SRC_DIR), $(SRC_FILES))
 OBJ	=	$(SRC:.c=.o)
 
@@ -46,7 +47,7 @@ WHITE = \033[0;97m
 all:		$(NAME)
 
 $(NAME):	$(MLX) $(OBJ)
-			@$(CC) -o $(NAME) $(FLAGS) $(OBJ) -I$(INC) $(MLX)
+			@$(CC) -o $(NAME) $(FLAGS) $(OBJ) $(MLX) -I$(INC) -ldl -lglfw -pthread -lm
 			@echo "$(GREEN)FRACT'OL COMPILED SUCCESFUL!$(DEF_COLOR)"			
 			
 			
@@ -67,7 +68,7 @@ clean:
 			@make clean -C ./mlx
 
 fclean:		clean
-# @make fclean -C ./libft
+#			@make fclean -C ./libft
 			@$(RM)  $(NAME)
 			@echo "$(RED)$(NAME) REMOVED!$(DEF_COLOR)"
 			
