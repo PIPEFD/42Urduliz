@@ -6,27 +6,30 @@
 #    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/17 17:36:22 by dbonilla          #+#    #+#              #
-#    Updated: 2024/01/02 12:59:42 by codespace        ###   ########.fr        #
+#    Updated: 2024/02/29 08:34:47 by codespace        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		=	fractol
-# LIBFT		=	libft/libft.a
-INC			=	inc/
-SRC_DIR		=	src/
-MLX			=	mlx/libmlx.a
-# FLAGS_MLX	=  -Lmlx -lmlx -framework OpenGL -framework AppKit
+NAME        =   fractol
+# LIBFT     =   libft/libft.a
+INC         =   inc/
+SRC_DIR     =   src/
+MLX         =   mlx/libmlx.a
+# FLAGS_MLX =  -Lmlx -lmlx -framework OpenGL -framework AppKit
 
-CC			=	gcc -fsanitize=address -g3
-FLAGS		=	-Wall -Wextra -Werror 
+CC          =   gcc -fsanitize=address -g3
+FLAGS       =   -Wall -Wextra -Werror 
 # -Lmlx -lmlx -framework OpenGL -framework AppKit
-RM			=	rm -f
+RM          =   rm -f
 
-SRC_FILES	=	draw_fractol.c \
-				fast_inverse_sqrt.c \
-				mandelbrot.c
-SRC	=	$(addprefix $(SRC_DIR), $(SRC_FILES))
-OBJ	=	$(SRC:.c=.o)
+SRC_FILES   =   draw_fractol.c \
+                fast_inverse_sqrt.c \
+                julia.c \
+				main.c \
+				mandelbrot.c 
+                
+SRC =   $(addprefix $(SRC_DIR), $(SRC_FILES))
+OBJ =   $(SRC:.c=.o)
 
 
 
@@ -44,18 +47,16 @@ WHITE = \033[0;97m
 
 # **************************************************************************** #
 
-all:		$(NAME)
+all:        $(NAME)
 
-$(NAME):	$(MLX) $(OBJ)
-			@$(CC) -o $(NAME) $(FLAGS) $(OBJ) $(MLX) -I$(INC) -ldl -lglfw -pthread -lm
-			@echo "$(GREEN)FRACT'OL COMPILED SUCCESFUL!$(DEF_COLOR)"			
-			
-			
+$(NAME):    $(MLX) $(OBJ)
+			@$(CC) -o $(NAME) $(FLAGS) $(OBJ) $(MLX) -I$(INC) -Lmlx -lmlx -framework OpenGL -framework AppKit
+			@echo "$(GREEN)FRACT'OL COMPILED SUCCESFUL!$(DEF_COLOR)"
+            
 # $(LIBFT):
-# 			@make -C ./libft
-
-$(MLX):
-			@make -C ./mlx
+#           @make -C ./libft
+$(MLX):	
+			@make -C ./mlx	
 
 .c.o:
 			@echo "$(BLUE)COMPILING... $< $(DEF_COLOR)"
@@ -67,12 +68,12 @@ clean:
 			@make clean -C ./libft
 			@make clean -C ./mlx
 
-fclean:		clean
-#			@make fclean -C ./libft
+fclean:     clean
+#           @make fclean -C ./libft
 			@$(RM)  $(NAME)
 			@echo "$(RED)$(NAME) REMOVED!$(DEF_COLOR)"
-			
+            
 
-re:			fclean all
+re:         fclean all
 
-.PHONY:		all clean fclean re libft print
+.PHONY:     all clean fclean re libft print

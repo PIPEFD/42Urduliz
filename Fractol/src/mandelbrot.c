@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 17:39:04 by dbonilla          #+#    #+#             */
-/*   Updated: 2023/12/22 08:14:55 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/29 08:01:13 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,3 +26,39 @@ int mandelbrot(t_complex c, int max_iter)
     }
     return iter;
 }
+
+
+void draw_mandelbrot(void *mlx_ptr, void *win_ptr)
+{
+    int max_iter = 100; // Puedes ajustar esto según tus necesidades
+    double zoom = 0.004;
+    t_complex offset = {-2, -1.5};
+    int x;
+    int y;
+    x = 0;
+    
+    while(x++ < WIDTH)
+    {
+        y = 0;
+        while (y++ < HEIGHT)
+        {
+
+
+        t_complex c = {offset.real + x * zoom, offset.imag + y * zoom};
+        int color = mandelbrot(c, max_iter);
+
+        float inv_sqrt_color = fast_inverse_sqrt(color);
+        int r = (int)(255.0 * inv_sqrt_color);
+        int g = (int)(255.0 * inv_sqrt_color);
+        int b = (int)(255.0 * inv_sqrt_color);
+        draw_pixel(mlx_ptr, win_ptr, x, y, r << 16 | g << 8 | b);
+        }
+    }
+}
+
+        //     // Puedes ajustar la lógica de color según tus preferencias
+        //     int r = (color % 256) << 16;
+        //     int g = (color % 256) << 8;
+        //     int b = (color % 256);
+        //  draw_pixel(mlx_ptr, win_ptr, x, y, r | g | b);
+        // }

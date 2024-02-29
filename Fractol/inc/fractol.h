@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 17:41:56 by dbonilla          #+#    #+#             */
-/*   Updated: 2024/01/04 09:59:00 by codespace        ###   ########.fr       */
+/*   Updated: 2024/02/29 08:26:06 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,8 @@
 #ifndef FRACTOL_H
 #define FRACTOL_H
 
-// #define WIDTH 1920
-// #define HEIGHT 1080
 
 #define DEV 0
-#define MACB 1
-#define IMAC 2
-#define IMAC4K 3
 #define MANDEL 0
 #define JULIA   1
 #define BURNING 2
@@ -35,26 +30,10 @@
 #define EXIT_SUCCESS 0
 
 
-# if (MAC == MACB)
-#define WIN_TITLE   "Fractol on Macbook"
-#define VP_WIDTH    1680
-#define VP_HEIGHT   1000
-#define M_XMIN      -2.8
-#define M_XMAX      1.3
-#define J_X         2
-#define BJ_X        3
-# elif (MAC == IMAC)
-#define WIN_TITLE   "Fractol 42"
-#define VP_WIDTH    2650
-#define VP_HEIGHT   1400
-#define M_XMIN      -2.8
-#define M_XMAX      1.3
-#define J_X         2.35
-#define BJ_X        3
-# elif (MAC == IMAC4K)
+
 #define WIN_TITLE   "Fractol"
-#define VP_WIDTH    1000
-#define VP_HEIGHT   1000
+#define WIDTH    1000
+#define HEIGHT   1000
 #define M_XMIN      -2.1
 #define M_XMAX      0.6
 #define J_X         2
@@ -79,7 +58,9 @@ typedef struct s_complex
 } t_complex;
 
 int		mandelbrot(t_complex c, int max_iter);
-void	draw_mandelbrot(void *mlx_ptr, void *win_ptr);
+void    draw_julia(void *mlx_ptr, void *win_ptr)
+int     julia(t_complex z, t_complex c, int max_iter);
+void	draw_mandelbrot(void *mlx_ptr, void *win,_ptr);
 float	fast_inverse_sqrt(float x);
 void	draw_pixel(void *mlx_ptr, void *win_ptr, int x, int y, int color);
 
