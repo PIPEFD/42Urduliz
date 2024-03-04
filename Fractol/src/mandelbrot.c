@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mandelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: event <event@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 17:39:04 by dbonilla          #+#    #+#             */
-/*   Updated: 2024/02/29 08:01:13 by codespace        ###   ########.fr       */
+/*   Updated: 2024/03/04 16:46:34 by event            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int mandelbrot(t_complex c, int max_iter)
 
 void draw_mandelbrot(void *mlx_ptr, void *win_ptr)
 {
-    int max_iter = 100; // Puedes ajustar esto según tus necesidades
+    int max_iter = 100; 
     double zoom = 0.004;
     t_complex offset = {-2, -1.5};
     int x;
@@ -56,9 +56,3 @@ void draw_mandelbrot(void *mlx_ptr, void *win_ptr)
     }
 }
 
-        //     // Puedes ajustar la lógica de color según tus preferencias
-        //     int r = (color % 256) << 16;
-        //     int g = (color % 256) << 8;
-        //     int b = (color % 256);
-        //  draw_pixel(mlx_ptr, win_ptr, x, y, r | g | b);
-        // }
