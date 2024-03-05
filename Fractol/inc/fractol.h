@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: event <event@student.42.fr>                +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 17:41:56 by dbonilla          #+#    #+#             */
-/*   Updated: 2024/03/04 16:55:26 by event            ###   ########.fr       */
+/*   Updated: 2024/03/04 23:27:05 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../mlx/mlx.h"
-# include <math.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <math.h>
 # include <unistd.h>
 # include <math.h>
+# include "../mlx/mlx.h"
 
 #ifndef FRACTOL_H
 #define FRACTOL_H
@@ -61,30 +61,24 @@ typedef struct s_complex
     double imag;
 } t_complex;
 
-
+typedef struct s_img
+{
+	void    *img_ptr;
+	char    *pixels_ptr;
+	int     bpp;
+	int     endian;
+	int     line_len;
+} 			t_img;
 
 typedef struct s_fractal
 {
-	char	*name_fractal;
-	void	*mlx_main_screen;
-	void	*mlx_fractal_screen;
+	void	*mlx_connection;
+	void	*mlx_window;
 	double	escape_valeu;
-	int		iterations_defintion;
-	double	axle_x;
-	double	axle_y;
-	double	zoom;
-	double	julia_x;
-	double	julia_y;
+	t_img	img;
 }				t_fractal;
 
-typedef struct mlx
-{
-	void*		window;
-	void*		context;
-	int32_t		width;
-	int32_t		height;
-	double		delta_time;
-}	mlx_t;
+
 
 void    draw_julia(void *mlx_ptr, void *win_ptr);
 int     julia(t_complex z, t_complex c, int max_iter);
@@ -92,7 +86,7 @@ int     mandelbrot(t_complex c, int max_iter);
 void    draw_mandelbrot(void *mlx_ptr, void *win_ptr);
 float	fast_inverse_sqrt(float x);
 void	draw_pixel(void *mlx_ptr, void *win_ptr, int x, int y, int color);
-int     fractal_init(t_fractal *fractal);
+void     fractal_init(t_fractal *fractal);
 // void    mlx_loop(mlx_t* mlx);
 
 

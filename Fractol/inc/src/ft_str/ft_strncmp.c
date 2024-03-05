@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/09 18:09:31 by dbonilla          #+#    #+#             */
-/*   Updated: 2023/10/03 18:44:45 by codespace        ###   ########.fr       */
+/*   Updated: 2024/03/04 21:16:30 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,15 @@
 
 int	ft_strncmp( const char *s1, const char *s2, size_t n)
 {
-	unsigned int	i;
-	unsigned char	*z1;
-	unsigned char	*z2;
-
-	z1 = (unsigned char *)s1;
-	z2 = (unsigned char *)s2;
-	i = 0;
-	while (z1[i] != '\0' && z2[i] != '\0' && i < n)
+	if (*s1 == '\0' || *s2 == '\0' || n == 0)
+		return (0);
+	while (*s1 == *s2 && n > 0 && *s1 != '\0')
 	{
-		if (z1[i] != z2[i])
-			return (z1[i] - z2[i]);
-		i++;
+		s1++;
+		s2++;
+		n--;
 	}
-	if (i < n)
-	{
-		return (z1[i] - z2[i]);
-	}
-	return (0);
+	
+	return (*s1 - *s2);
+	
 }
-
-// int	main(void)
-// {
-// 	char	str1[] = " Hola Mundo";
-// 	char	str2[] = " Hola undo";
-// 	printf("Before strncmp str1 = %s \n 		str2 = %s \n", str1, str2);
-// 	printf ("After strncmp str = %d \n", ft_strncmp (str1, str2, 25 ));
-// 	printf("Original function  = %d \n", strncmp(str1, str2, 25));
-// }
