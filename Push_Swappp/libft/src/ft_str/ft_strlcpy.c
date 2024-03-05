@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/28 16:23:39 by dbonilla          #+#    #+#             */
-/*   Updated: 2024/02/09 20:28:58 by codespace        ###   ########.fr       */
+/*   Created: 2023/10/24 16:39:54 by codespace         #+#    #+#             */
+/*   Updated: 2023/11/13 19:57:30 by dbonilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-size_t	ft_putnbr_fd(int nb, int fd)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	unsigned int	nbr;
+	size_t	i;
+	char	*pt_src;
 
-	nbr = 0;
-	if (nb < 0)
+	pt_src = (char *)src;
+	i = 0;
+	if (size > 0)
 	{
-		ft_putchar_fd('-', fd);
-		nbr = (unsigned int)(nb * -1);
+		while (pt_src[i] != '\0' && i < size - 1)
+		{
+		dst[i] = pt_src[i];
+			i++;
+		}
+		dst[i] = 0;
 	}
-	else
-		nbr = (unsigned int)nb;
-	if (nbr >= 10)
-		ft_putnbr_fd(nbr / 10, fd);
-	ft_putchar_fd((char)(nbr % 10 + 48), fd);
-	return(nbr);
+	while (src[i])
+		i++;
+	return (i);
 }

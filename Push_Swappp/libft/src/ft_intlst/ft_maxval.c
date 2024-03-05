@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_maxval.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/28 16:23:39 by dbonilla          #+#    #+#             */
-/*   Updated: 2024/02/09 20:28:58 by codespace        ###   ########.fr       */
+/*   Created: 2023/10/23 14:24:56 by codespace         #+#    #+#             */
+/*   Updated: 2023/11/21 00:13:22 by dbonilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-size_t	ft_putnbr_fd(int nb, int fd)
+int	ft_maxval(t_intlst *lst)
 {
-	unsigned int	nbr;
+	int	max;
 
-	nbr = 0;
-	if (nb < 0)
+	if (lst)
 	{
-		ft_putchar_fd('-', fd);
-		nbr = (unsigned int)(nb * -1);
+		max = lst->value;
+		while (lst)
+		{
+			if (lst->value > max)
+				max = lst->value;
+			lst = lst->next;
+		}
+		return (max);
 	}
-	else
-		nbr = (unsigned int)nb;
-	if (nbr >= 10)
-		ft_putnbr_fd(nbr / 10, fd);
-	ft_putchar_fd((char)(nbr % 10 + 48), fd);
-	return(nbr);
+	return (0);
 }

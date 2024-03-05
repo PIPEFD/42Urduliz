@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_sortedr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/28 16:23:39 by dbonilla          #+#    #+#             */
-/*   Updated: 2024/02/09 20:28:58 by codespace        ###   ########.fr       */
+/*   Created: 2023/09/27 15:29:28 by codespace         #+#    #+#             */
+/*   Updated: 2023/11/14 15:48:57 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-size_t	ft_putnbr_fd(int nb, int fd)
+int	ft_sortedr(t_intlst *lst)
 {
-	unsigned int	nbr;
-
-	nbr = 0;
-	if (nb < 0)
+	while (lst->next)
 	{
-		ft_putchar_fd('-', fd);
-		nbr = (unsigned int)(nb * -1);
+		if (lst->value < lst ->next->value)
+			return (0);
+		lst = lst->next;
 	}
-	else
-		nbr = (unsigned int)nb;
-	if (nbr >= 10)
-		ft_putnbr_fd(nbr / 10, fd);
-	ft_putchar_fd((char)(nbr % 10 + 48), fd);
-	return(nbr);
+	return (1);
 }

@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_size.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/28 16:23:39 by dbonilla          #+#    #+#             */
-/*   Updated: 2024/02/09 20:28:58 by codespace        ###   ########.fr       */
+/*   Created: 2023/10/24 14:24:02 by codespace         #+#    #+#             */
+/*   Updated: 2023/11/14 02:36:05 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-size_t	ft_putnbr_fd(int nb, int fd)
+size_t	ft_size(t_intlst *lst)
 {
-	unsigned int	nbr;
+	unsigned int	size;
 
-	nbr = 0;
-	if (nb < 0)
+	size = 0;
+	while (lst)
 	{
-		ft_putchar_fd('-', fd);
-		nbr = (unsigned int)(nb * -1);
+		size++;
+		lst = lst->next;
 	}
-	else
-		nbr = (unsigned int)nb;
-	if (nbr >= 10)
-		ft_putnbr_fd(nbr / 10, fd);
-	ft_putchar_fd((char)(nbr % 10 + 48), fd);
-	return(nbr);
+	return (size);
 }

@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_insert_args.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/28 16:23:39 by dbonilla          #+#    #+#             */
-/*   Updated: 2024/02/09 20:28:58 by codespace        ###   ########.fr       */
+/*   Created: 2023/10/21 22:29:18 by codespace         #+#    #+#             */
+/*   Updated: 2023/11/14 02:35:37 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-size_t	ft_putnbr_fd(int nb, int fd)
+t_intlst	*ft_insert_args(int argc, char **argv)
 {
-	unsigned int	nbr;
+	int			i;
+	t_intlst	*a;
+	t_intlst	*tmp;
 
-	nbr = 0;
-	if (nb < 0)
+	i = 1;
+	while (i < argc)
 	{
-		ft_putchar_fd('-', fd);
-		nbr = (unsigned int)(nb * -1);
+		if (i == 1)
+			a = ft_new(ft_atoi((*(argv + i))));
+		else
+		{
+			tmp = ft_new(ft_atoi((*(argv + i))));
+			ft_insert_back(&a, tmp);
+		}
+		i++;
 	}
-	else
-		nbr = (unsigned int)nb;
-	if (nbr >= 10)
-		ft_putnbr_fd(nbr / 10, fd);
-	ft_putchar_fd((char)(nbr % 10 + 48), fd);
-	return(nbr);
+	return (a);
 }

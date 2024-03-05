@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/28 16:23:39 by dbonilla          #+#    #+#             */
-/*   Updated: 2024/02/09 20:28:58 by codespace        ###   ########.fr       */
+/*   Created: 2024/02/24 16:41:02 by codespace         #+#    #+#             */
+/*   Updated: 2024/02/24 16:43:40 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
+#ifndef LIBFT_H
+# define LIBFT_H
 
-size_t	ft_putnbr_fd(int nb, int fd)
-{
-	unsigned int	nbr;
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdbool.h>
 
-	nbr = 0;
-	if (nb < 0)
-	{
-		ft_putchar_fd('-', fd);
-		nbr = (unsigned int)(nb * -1);
-	}
-	else
-		nbr = (unsigned int)nb;
-	if (nbr >= 10)
-		ft_putnbr_fd(nbr / 10, fd);
-	ft_putchar_fd((char)(nbr % 10 + 48), fd);
-	return(nbr);
-}
+bool is_space(char c);
+bool is_sign(char c);
+
+
+#endif

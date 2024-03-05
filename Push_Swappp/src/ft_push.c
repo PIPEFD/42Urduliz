@@ -1,31 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/28 16:23:39 by dbonilla          #+#    #+#             */
-/*   Updated: 2024/02/09 20:28:58 by codespace        ###   ########.fr       */
+/*   Created: 2023/10/23 14:44:28 by codespace         #+#    #+#             */
+/*   Updated: 2023/11/14 02:39:03 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/libft.h"
+#include "../includes/ft_push_swap.h"
 
-size_t	ft_putnbr_fd(int nb, int fd)
+void	ft_push(t_intlst **src, t_intlst **dst)
 {
-	unsigned int	nbr;
+	t_intlst	*tmp;
 
-	nbr = 0;
-	if (nb < 0)
+	if (*src)
 	{
-		ft_putchar_fd('-', fd);
-		nbr = (unsigned int)(nb * -1);
+		tmp = (*src)->next;
+		(*src)->next = *dst;
+		*dst = *src;
+		*src = tmp;
 	}
-	else
-		nbr = (unsigned int)nb;
-	if (nbr >= 10)
-		ft_putnbr_fd(nbr / 10, fd);
-	ft_putchar_fd((char)(nbr % 10 + 48), fd);
-	return(nbr);
+}
+
+void	ft_pa(t_intlst **a, t_intlst **b)
+{
+	if (*b)
+	{
+		ft_push(b, a);
+		ft_putstr("pa\n", 1);
+	}
+}
+
+void	ft_pb(t_intlst **a, t_intlst **b)
+{
+	if (*a)
+	{
+		ft_push(a, b);
+		ft_putstr("pb\n", 1);
+	}
 }
