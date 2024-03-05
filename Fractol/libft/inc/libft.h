@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 21:49:48 by codespace         #+#    #+#             */
-/*   Updated: 2024/03/05 21:49:49 by codespace        ###   ########.fr       */
+/*   Updated: 2024/03/05 22:05:08 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@
 # include <sys/types.h>
 # include <fcntl.h>
 
-
+void    ft_putstr_fd(char *s, int fd);
+int     ft_strncmp(char *s1, char *s2, size_t n);
 
 
 #endif

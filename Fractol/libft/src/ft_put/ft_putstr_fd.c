@@ -6,7 +6,20 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 21:55:54 by codespace         #+#    #+#             */
-/*   Updated: 2024/03/05 21:55:55 by codespace        ###   ########.fr       */
+/*   Updated: 2024/03/05 22:04:31 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
+#include "libft.h"
+
+void    putstr_fd(char *s, int fd)
+{
+    if (s == NULL || fd < 0)
+        return ;
+    if (*s != '\0')
+    {
+        write(fd, s, 1);
+        putstr_fd(s + 1, fd);
+    }
+}
