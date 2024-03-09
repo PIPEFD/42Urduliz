@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pipefd <pipefd@student.42.fr>              +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 17:41:56 by dbonilla          #+#    #+#             */
-/*   Updated: 2024/03/07 22:48:57 by pipefd           ###   ########.fr       */
+/*   Updated: 2024/03/09 22:52:09 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,17 +71,25 @@
 #define CMD_6
 #define CMD_7
 
+
+typedef struct s_colors{
+    unsigned char 	r;
+    unsigned char 	g;
+    unsigned char 	b;
+}				t_colors;
+
+
 typedef struct s_window
 {
-	int	x;
-	int	y;
+	int		x;
+	int		y;
 }			t_window;
 
 
 typedef struct s_complex
 {
-    double x;
-    double y;
+    double 	x;
+    double 	y;
 } 			t_complex;
 
 typedef struct s_img
@@ -95,12 +103,13 @@ typedef struct s_img
 
 typedef struct s_fractal
 {
-	char	*name;
-	void	*mlx_connection;
-	void	*mlx_window;
-	t_img	img;
-	double	hypo_value;
-	int		interations;
+	char		*name;
+	void		*mlx_connection;
+	void		*mlx_window;
+	t_img		img;
+	t_colors 	color;
+	double		hypo_value;
+	int			interations;
 }				t_fractal;
 
 

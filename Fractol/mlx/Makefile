@@ -11,10 +11,10 @@
 ## Please use configure script
 
 
-all	: do_configure
+@all	: do_configure
 
 do_configure	:
-	./configure
+	@./configure
 
 clean	:
 	./configure clean

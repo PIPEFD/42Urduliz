@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pipefd <pipefd@student.42.fr>              +#+  +:+       +#+         #
+#    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/17 17:36:22 by dbonilla          #+#    #+#              #
-#    Updated: 2024/03/07 21:57:31 by pipefd           ###   ########.fr        #
+#    Updated: 2024/03/09 22:21:09 by codespace        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,11 +61,11 @@ $(NAME):    $(MLX) $(OBJ) $(LIBFT)
 $(LIBFT):
 			@make -C ./libft
 $(MLX):	
-			@make -C ./mlx
+			@make -C ./mlx 2>/dev/null
 
 .c.o:
 			@echo "$(BLUE)COMPILING... $< $(DEF_COLOR)"
-			@$(CC) $(FLAGS) -I$(INC) -c $< -o $(<:.c=.o)
+			$(CC) $(FLAGS) -I$(INC) -c $< -o $(<:.c=.o)
 
 clean:
 			@$(RM) $(OBJ)
