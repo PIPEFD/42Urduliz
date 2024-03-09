@@ -3,23 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: pipefd <pipefd@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 21:55:54 by codespace         #+#    #+#             */
-/*   Updated: 2024/03/05 22:04:31 by codespace        ###   ########.fr       */
+/*   Updated: 2024/03/06 21:24:58 by pipefd           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "libft.h"
+#include "../../inc/libft.h"
 
-void    putstr_fd(char *s, int fd)
+void    ft_putstr_fd(char *s, int fd)
 {
     if (s == NULL || fd < 0)
         return ;
     if (*s != '\0')
     {
         write(fd, s, 1);
-        putstr_fd(s + 1, fd);
+        ft_putstr_fd(s + 1, fd);
     }
 }

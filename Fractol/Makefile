@@ -3,30 +3,35 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
+#    By: pipefd <pipefd@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/17 17:36:22 by dbonilla          #+#    #+#              #
-#    Updated: 2024/02/29 08:34:47 by codespace        ###   ########.fr        #
+#    Updated: 2024/03/07 21:57:31 by pipefd           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME        =   fractol
-# LIBFT     =   libft/libft.a
+LIBFT     	=	libft/libft.a
 INC         =   inc/
 SRC_DIR     =   src/
-MLX         =   mlx/libmlx.a
+MLX         =   mlx/libmlx_Linux.a
 # FLAGS_MLX =  -Lmlx -lmlx -framework OpenGL -framework AppKit
 
 CC          =   gcc -fsanitize=address -g3
 FLAGS       =   -Wall -Wextra -Werror 
-# -Lmlx -lmlx -framework OpenGL -framework AppKit
 RM          =   rm -f
 
-SRC_FILES   =   draw_fractol.c \
-                fast_inverse_sqrt.c \
-                julia.c \
-				main.c \
-				mandelbrot.c 
+SRC_FILES   =   main.c \
+				init.c \
+				map.c \
+				fractal_render.c \
+				
+
+				
+# draw_fractol.c \
+# fast_inverse_sqrt.c \
+# julia.c \
+# mandelbrot.c \
                 
 SRC =   $(addprefix $(SRC_DIR), $(SRC_FILES))
 OBJ =   $(SRC:.c=.o)
@@ -49,21 +54,21 @@ WHITE = \033[0;97m
 
 all:        $(NAME)
 
-$(NAME):    $(MLX) $(OBJ)
-			@$(CC) -o $(NAME) $(FLAGS) $(OBJ) $(MLX) -I$(INC) -Lmlx -lmlx -framework OpenGL -framework AppKit
+$(NAME):    $(MLX) $(OBJ) $(LIBFT)
+			$(CC) -o $(NAME) $(FLAGS) $(OBJ) $(LIBFT) $(MLX) -I$(INCLUDES) -Lminilibx-linux -lX11 -lXext
 			@echo "$(GREEN)FRACT'OL COMPILED SUCCESFUL!$(DEF_COLOR)"
             
-# $(LIBFT):
-#           @make -C ./libft
+$(LIBFT):
+			@make -C ./libft
 $(MLX):	
-			@make -C ./mlx	
+			@make -C ./mlx
 
 .c.o:
 			@echo "$(BLUE)COMPILING... $< $(DEF_COLOR)"
 			@$(CC) $(FLAGS) -I$(INC) -c $< -o $(<:.c=.o)
 
 clean:
-			@$(RM) $(OBJ_CLIENT)
+			@$(RM) $(OBJ)
 			@echo "$(YELLOW)FILES REMOVED!$(DEF_COLOR)"
 			@make clean -C ./libft
 			@make clean -C ./mlx

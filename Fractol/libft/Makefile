@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+         #
+#    By: pipefd <pipefd@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/17 18:36:01 by dbonilla          #+#    #+#              #
-#    Updated: 2023/12/17 18:36:02 by dbonilla         ###   ########.fr        #
+#    Updated: 2024/03/06 00:22:01 by pipefd           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,10 +20,9 @@ RM			=	rm -f
 
 
 
-SRC_FILES	=	ft_put/ft_putchar_fd.c \
-				ft_put/ft_putnbr_fd.c ft_put/ft_putstr_fd.c \
-				ft_to/ft_atoi.c \
-				
+SRC_FILES	=	ft_put/ft_putstr_fd.c \
+				ft_str/ft_strncmp.c
+								
 SRC	=	$(addprefix $(SRC_DIR), $(SRC_FILES))
 OBJ	=	$(SRC:.c=.o)
 
