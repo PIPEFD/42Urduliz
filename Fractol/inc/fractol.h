@@ -47,7 +47,7 @@
 // #define RED         0xFF0000
 // #define GREEN       0x00FF00
 // #define BLUE        0x0000FF
-// #define YELLOW      0xFFFF00
+#define YELLOW      0xFFFF00
 // #define MAGENTA     0xFF00FF
 // #define CYAN        0x00FFFF
 
@@ -77,14 +77,6 @@ typedef struct s_colors{
     unsigned char 	g;
     unsigned char 	b;
 }				t_colors;
-
-
-typedef struct s_window
-{
-	int		x;
-	int		y;
-}			t_window;
-
 
 typedef struct s_complex
 {
@@ -116,7 +108,9 @@ typedef struct s_fractal
 
 
 void    	fractal_init(t_fractal *fractal);
-double 		scale(double unscaled_num, double new_min, double new_max, double old_min, double old_max);
+double 		scale(double unscaled_num, double new_min, double new_max, double old_max);
+float		fast_inverse_sqrt(float x);
+
 void    	fractal_render(t_fractal *fractal);
 t_complex 	sum_complex(t_complex z1, t_complex z2);
 t_complex 	square(t_complex z);

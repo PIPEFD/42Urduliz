@@ -32,6 +32,9 @@
 // }
 
 
+
+
+
 int main()
 {
     t_fractal fractal;

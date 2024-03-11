@@ -13,15 +13,16 @@
 #include "stdio.h"
 
 
-double map(double unscaled_num, double new_min, double new_max, double old_min, double old_max)
+double map(double unscaled_num, double new_min, double new_max, double old_max)
 {
-    return (new_max - new_min) * (unscaled_num - old_min) / (old_max - old_min) + new_min;
+	return ((new_max - new_min) * (unscaled_num - 0) / \
+	(old_max - 0) + new_min);
 }
 
-// int main()
-// {
-//     for (int i = 0; i < 42; ++i)
-//     {
-//         printf("%d -> %f\n", i, map((double)i, -2, +2, 0, 700));
-//     }
-// }
+int main()
+{
+    for (int i = 0; i < 42; ++i)
+    {
+        printf("%d -> %f\n", i, map((double)i, -2, +2, 0, 700));
+    }
+}

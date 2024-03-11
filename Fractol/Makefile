@@ -11,10 +11,10 @@
 # **************************************************************************** #
 
 NAME        =   fractol
-LIBFT     	=	libft/libft.a
+# LIBFT     	=	libft/libft.a
 INC         =   inc/
 SRC_DIR     =   src/
-MLX         =   mlx/libmlx_Linux.a
+MLX         =   mlx/libmlx.a
 # FLAGS_MLX =  -Lmlx -lmlx -framework OpenGL -framework AppKit
 
 CC          =   gcc -fsanitize=address -g3
@@ -55,11 +55,11 @@ WHITE = \033[0;97m
 all:        $(NAME)
 
 $(NAME):    $(MLX) $(OBJ) $(LIBFT)
-			$(CC) -o $(NAME) $(FLAGS) $(OBJ) $(LIBFT) $(MLX) -I$(INCLUDES) -Lminilibx-linux -lX11 -lXext
+			$(CC) -o $(NAME) $(FLAGS) $(OBJ) $(MLX) -I$(INCLUDES) -Lmlx -framework OpenGL -framework AppKit
 			@echo "$(GREEN)FRACT'OL COMPILED SUCCESFUL!$(DEF_COLOR)"
             
-$(LIBFT):
-			@make -C ./libft
+# $(LIBFT):
+# 			@make -C ./libft
 $(MLX):	
 			@make -C ./mlx 2>/dev/null
 
