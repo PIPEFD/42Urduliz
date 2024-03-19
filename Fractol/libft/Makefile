@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: pipefd <pipefd@student.42.fr>              +#+  +:+       +#+         #
+#    By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/17 18:36:01 by dbonilla          #+#    #+#              #
-#    Updated: 2024/03/06 00:22:01 by pipefd           ###   ########.fr        #
+#    Updated: 2024/03/18 17:08:40 by dbonilla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ RM			=	rm -f
 
 
 SRC_FILES	=	ft_put/ft_putstr_fd.c \
-				ft_str/ft_strncmp.c
+				ft_str/ft_strncmp.c\
+				ft_nb/atodbl.c\
 								
 SRC	=	$(addprefix $(SRC_DIR), $(SRC_FILES))
 OBJ	=	$(SRC:.c=.o)
@@ -42,8 +43,8 @@ WHITE = \033[0;97m
 all:			$(NAME)
 
 $(NAME):		$(OBJ)
-					@$(AR) $(NAME) $(OBJ)
-					@echo "$(GREEN)LIBFT COMPILED SUCCESFUL!$(DEF_COLOR)"
+				@$(AR) $(NAME) $(OBJ)
+				@echo "$(GREEN)LIBFT COMPILED SUCCESFUL!$(DEF_COLOR)"
 .c.o:			
 				@echo "$(BLUE)COMPILING... $< $(DEF_COLOR)"
 				@$(CC) $(CCFLAGS) -I$(INCLUDES) -c $< -o $(<:.c=.o)
@@ -53,7 +54,7 @@ clean:
 
 fclean:			clean
 				@$(RM) $(NAME)
-				@echo "$(RED)$(NAME) REMOVED!$(DEF_COLOR)"
+# @ "$(RED)$(NAME) REMOVED!$(DEF_COLOR)"
 
 re:				fclean all
 

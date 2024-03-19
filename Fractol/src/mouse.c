@@ -3,71 +3,65 @@
 /*                                                        :::      ::::::::   */
 /*   mouse.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/06 12:10:01 by codespace         #+#    #+#             */
-/*   Updated: 2024/01/06 12:38:34 by codespace        ###   ########.fr       */
+/*   Updated: 2024/03/18 21:19:54 by dbonilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static inline void zoom_on_cursor(t_fractal *data, int value, int x, int y )
-{
-    TYPE_Z toby[4];
+#include "../inc/fractol.h"
+#include "keycode_mac.h"
 
-    data->reiter = 0;
-    x -=VP_WIDTH / 2 ;
-    y -= VP_HEIGHT / 2;
-    toby[0] = -x * data->step;
-    toby[1] = -y * data->step;
-    toby[2] = (data->x2 - data-> x1) / value;
-    toby[3] = (data->y2 - data-> y1) / value;
-    data -> x1 += toby[2];
-    data -> x2 -= toby[2];
-    data->step = (data->x2 - data->x1) /(VP_WIDTH - 1);
-    toby[0] += x *data->step;
-    toby[1] += y * data->step;
-    data-> x1 -= toby[0]
-    data-> x1 -= toby[0]
-    data-> x1 -= toby[3] -toby[1];
-    data-> x1 -= toby[3] + toby[1];
-    data->changed  = 1
-    
-    
+t_fractal	*relative_posi(int keycode, int x, int y, t_fractal *fractal)
+{
+	if (keycode == 4)
+	{
+		fractal->move.c_r = (fractal->move.c_r \
+				+ ((WIDTH - (WIDTH / 0.5)) / 2) \
+				+ (x - WIDTH / 2) * (1 - (1 / 0.5))) * 0.5;
+		fractal->move.c_i = (fractal->move.c_i \
+				+ ((HEIGHT - (HEIGHT / 0.5)) / 2) \
+				+ (y - HEIGHT / 2) * (1 - (1 / 0.5))) * 0.5;
+		return (fractal);
+	}
+	else if (keycode == 5)
+	{
+		fractal->move.c_r = (fractal->move.c_r \
+						+ ((WIDTH - (WIDTH * 0.5)) / 2) \
+						+ (x - WIDTH / 2) * (1 - 0.5)) + 0.5;
+		fractal->move.c_i = (fractal->move.c_i \
+						+ ((HEIGHT - (HEIGHT * 0.5)) / 2) \
+						+ (y - HEIGHT / 2) * (1 - 0.5)) + 0.5;
+		return (fractal);
+	}
+	return (0);
 }
 
-
-int deal_mouse (int mouse_code, int x,  int y, t_env *env)
+int	mouse_hook(int key_code, int x, int y, t_fractal *fractal)
 {
-    if (env->d.type % 2  ==  MANDEL && mouse_code == 1)
-    {
-        env->motion_on = 1;
-        mouse_motion(x, y, env);
-        env->motion_on = 0;
-        if (env->d.type == MANDEL)
-            set_julia(&env->d, JULIA);
-        if (env->d.type == BURNING)
-            set_julia(&env->d, MANDELBROT);
-        if (env->d.type == KOCH)
-            set_julia(&env->d, MANDELBROT);        
-    }
-    else if (mouse_code ==  5)
-        zoom_on_cursor(&env->d, 25, x, y);
-    else if (mouse coude == 4)
-        zoom_on_cursor(&env->, -25, x, y);
-    else if (DEBUG)
-        ft_print_value("\n Mouse event",  mouse_code);
-    return (0);
-}
+	t_fractal	new_img;
 
-inline int mouse_motion(int x, int y, t_env *env)
-{
-    if (x !=  env ->old_x_mouse || y != env->old_y_mouse)
-    {
-        env->d.reiter = 0;
-        env->old_x_mouse = x;
-        env->d.c_r = env->d.x1 + x * env->d.step;
-        env->d.c_i = env->d.y1 + y  * env->d.step;
-        env->d.changed = 1;
-    }
-    return (0);
+	new_img = *(t_fractal *)fractal;
+	if (key_code == 4)
+	{
+		mlx_clear_window(new_img.mlx_window, new_img.mlx_window);
+		fractal->move.zoom /= +0.5;
+		new_img = *relative_posi(key_code, x, y, fractal);
+		fractal_render(&new_img);
+		mlx_put_image_to_window(fractal->mlx_connection, \
+								fractal->mlx_window, &fractal->img, 0, 0);
+		*(t_fractal *)fractal = new_img;
+	}
+	else if (key_code == 5)
+	{
+		mlx_clear_window(new_img.mlx_window, new_img.mlx_window);
+		fractal->move.zoom *= 0.5;
+		new_img = *relative_posi(key_code, x, y, fractal);
+		fractal_render(&new_img);
+		mlx_put_image_to_window(fractal->mlx_connection, fractal->mlx_window, \
+								&fractal->img, 0, 0);
+		*(t_fractal *)fractal = new_img;
+	}
+	return (0);
 }

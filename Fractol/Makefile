@@ -3,28 +3,29 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
+#    By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/17 17:36:22 by dbonilla          #+#    #+#              #
-#    Updated: 2024/03/09 22:21:09 by codespace        ###   ########.fr        #
+#    Updated: 2024/03/18 22:08:05 by dbonilla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME        =   fractol
-# LIBFT     	=	libft/libft.a
+LIBFT     	=	libft/libft.a
 INC         =   inc/
 SRC_DIR     =   src/
 MLX         =   mlx/libmlx.a
-# FLAGS_MLX =  -Lmlx -lmlx -framework OpenGL -framework AppKit
 
 CC          =   gcc -fsanitize=address -g3
 FLAGS       =   -Wall -Wextra -Werror 
 RM          =   rm -f
 
 SRC_FILES   =   main.c \
-				init.c \
-				map.c \
+				fractal_init.c \
+				math.c \
 				fractal_render.c \
+				keyboard.c\
+				mouse.c\
 				
 
 				
@@ -54,18 +55,18 @@ WHITE = \033[0;97m
 
 all:        $(NAME)
 
-$(NAME):    $(MLX) $(OBJ) $(LIBFT)
-			$(CC) -o $(NAME) $(FLAGS) $(OBJ) $(MLX) -I$(INCLUDES) -Lmlx -framework OpenGL -framework AppKit
+$(NAME):    $(LIBFT) $(MLX) $(OBJ)
+			@$(CC) -o $(NAME) $(FLAGS) $(OBJ) $(LIBFT) $(MLX) -I$(INCLUDES) -Lmlx -framework OpenGL -framework AppKit
 			@echo "$(GREEN)FRACT'OL COMPILED SUCCESFUL!$(DEF_COLOR)"
             
-# $(LIBFT):
-# 			@make -C ./libft
+$(LIBFT):
+			@make -C ./libft
 $(MLX):	
 			@make -C ./mlx 2>/dev/null
 
 .c.o:
 			@echo "$(BLUE)COMPILING... $< $(DEF_COLOR)"
-			$(CC) $(FLAGS) -I$(INC) -c $< -o $(<:.c=.o)
+			@$(CC) $(FLAGS) -I$(INC) -c $< -o $(<:.c=.o)
 
 clean:
 			@$(RM) $(OBJ)
@@ -74,9 +75,9 @@ clean:
 			@make clean -C ./mlx
 
 fclean:     clean
-#           @make fclean -C ./libft
+			@make fclean -C ./libft
 			@$(RM)  $(NAME)
-			@echo "$(RED)$(NAME) REMOVED!$(DEF_COLOR)"
+			@echo "$(RED)REMOVED ALL FILES!$(DEF_COLOR)"
             
 
 re:         fclean all

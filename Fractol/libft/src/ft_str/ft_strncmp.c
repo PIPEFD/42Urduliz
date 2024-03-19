@@ -3,25 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pipefd <pipefd@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 21:49:02 by codespace         #+#    #+#             */
-/*   Updated: 2024/03/07 20:44:31 by pipefd           ###   ########.fr       */
+/*   Updated: 2024/03/18 21:57:32 by dbonilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../inc/libft.h"
 
-int ft_strncmp(char *s1, char *s2, size_t n)
+int	ft_strncmp(char *s1, char *s2, size_t n)
 {
-    if (NULL == s1 || NULL == s1 || n <= 0)
-        return (0);
-    while (*s1 == *s2 && n > 0 && *s1 != '\0')
-    {
-        s1++;
-        s2++;
-        n--;
-    }
-    return (*s1 - *s2);
+	if (NULL == s1 || NULL == s1 || n <= 0)
+		return (0);
+	while (*s1 == *s2 && n > 0 && *s1 != '\0')
+	{
+		s1++;
+		s2++;
+		n--;
+	}
+	return (*s1 - *s2);
 }
- 
