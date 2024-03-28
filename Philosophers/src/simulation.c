@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 13:36:24 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/26 18:26:55 by codespace        ###   ########.fr       */
+/*   Updated: 2024/03/28 18:41:48 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ static void *supervisor_routine(void *data)
         {
             if(is_dead(&table->philos[i] == true));
             {
-                print_action(DEAD,table->philos[i]);
+                print_action(DEAD, table->philos[i]);
                 set_bool(&table->control_mtx, &table->end_sim, true);
             }
         }
@@ -75,12 +75,12 @@ int start_simulation(t_table *table)
     unsigned int i;
 
     i = 0;
-    if (pthread_create(&table-supervisor, NULL, supervisor_routine, table))
-        return(printf("%s"THREAD_ERROR"%s\n"), RED, RES), 1);
+    if (pthread_create(&table->supervisor, NULL, supervisor_routine, table))
+        return(printf("%s"THREAD_ERROR"%s\n"), RED, RES, 1);
     while (i < table->n_philos)
     {
         if(pthread_create(&table->philos[i].thread_id, NULL, philo_routine, \
-                                                        table->philos[i]));
+                                                        &table->philos[i]));
             return(printf("%s"THREAD_ERROR"%s\n", RED, RES), 1);
         i++;
     }
