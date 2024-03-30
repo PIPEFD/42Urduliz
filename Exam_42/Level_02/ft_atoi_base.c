@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 11:41:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/03/28 23:07:26 by codespace        ###   ########.fr       */
+/*   Updated: 2024/03/30 14:23:37 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 // Función para verificar si un carácter es un espacio en blanco
 int is_blank(char c)
 {
-
     if (c <= 32)
         return(1); // Retorna 1 si es espacio en blanco
     return(0); // Retorna 0 si no es espacio en blanco

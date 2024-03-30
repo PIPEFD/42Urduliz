@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/21 14:03:36 by codespace         #+#    #+#             */
-/*   Updated: 2024/03/28 23:12:04 by codespace        ###   ########.fr       */
+/*   Updated: 2024/03/28 23:28:10 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,9 @@ int is_power_of_2(unsigned int n)
     return 1; // 🚀 Retorna verdadero
 }
 
-
-int	    is_power_of_2(unsigned int n)
-{
-    return (n != 0 && ((n&( n - 1)) == 0));
-}
+// int is_power_of_2(unsigned int n)
+// {
+//     // 🧠 Un número es una potencia de 2 si tiene un solo bit establecido en su representación binaria.
+//     // 🧠 La expresión (n & (n - 1)) despeja el bit más bajo establecido, y si el resultado es 0, significa que solo había un bit establecido.
+//     return (n != 0 && ((n & (n - 1)) == 0));
+// }
