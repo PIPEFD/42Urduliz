@@ -1,5 +1,6 @@
 #include <unistd.h>
 
+
 // Función para convertir una cadena de caracteres a un entero
 int ft_atoi(char *s)
 {
