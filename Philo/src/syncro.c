@@ -6,7 +6,7 @@
 /*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 10:07:05 by codespace         #+#    #+#             */
-/*   Updated: 2024/04/08 18:01:43 by dbonilla         ###   ########.fr       */
+/*   Updated: 2024/04/08 19:40:18 by dbonilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	wait_all_threads(t_table *table)
 
 bool all_philos_running(t_mtx *mutex, t_table *table)
 {
+    printf("get_bool %i\n", get_bool(mutex, &table->all_philos_running));
     return (get_bool(mutex, &table->all_philos_running));
 }
 

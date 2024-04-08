@@ -6,7 +6,7 @@
 /*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:43:22 by codespace         #+#    #+#             */
-/*   Updated: 2024/04/08 18:21:54 by dbonilla         ###   ########.fr       */
+/*   Updated: 2024/04/08 18:39:31 by dbonilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 
 static int mem_alloc(t_table *table)
 {
-    table->start_sim = false;
-    table->end_sim = false;
-    table->all_philos_running = false;
-    table->n_philos_running = 0;
+    // table->start_sim = false;
+    // table->end_sim = false;
+    // table->all_philos_running = false;
+    // table->n_philos_running = 0;
     table->philos = malloc(table->n_philos * sizeof(t_philo));
     if (!table->philos) 
     {
@@ -53,7 +53,6 @@ static int mutex_init(t_table *table)
     {
 
         table->forks[i].id = i;
-        printf("table->forks[i].id = %d\n", table->forks[i].id);
         if(pthread_mutex_init(&table->forks[i].fork_mtx, NULL))
         {
             while (--i >= 0)
@@ -70,12 +69,7 @@ static void assing_forks(t_philo *philo, t_fork *forks, unsigned int philo_pos)
     if (philo->id % 2 == 0)
     {
         philo->first_fork = &(forks[philo_pos]);
-        printf("Fork 1: %d\n", philo->first_fork->id);
-        printf("philo_pos: %d\n", philo_pos);
-
         philo->second_fork = &(forks[philo_pos + 1 % philo->table->n_philos]);
-        printf("philo_pos: %d\n", philo_pos);
-        printf("Fork 2: %d\n", philo->first_fork->id);
     }
     else
     {

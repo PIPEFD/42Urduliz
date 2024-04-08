@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 11:01:59 by codespace         #+#    #+#             */
-/*   Updated: 2024/04/08 11:12:27 by codespace        ###   ########.fr       */
+/*   Updated: 2024/04/08 21:51:24 by dbonilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ bool  is_dead(t_philo *philo)
 {
     long dif;
     long last_meal;
-    
     last_meal = get_long(&philo->philo_mtx, &philo->last_meal_time);
+    printf("last_meal %li\n", last_meal);
     dif = get_time(MILISECONDS) - last_meal;
     return (dif > philo->table->time_die);
 }
