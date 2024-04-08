@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 10:52:49 by codespace         #+#    #+#             */
-/*   Updated: 2024/04/04 14:15:20 by codespace        ###   ########.fr       */
+/*   Updated: 2024/04/08 10:33:43 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,24 @@
 #include "../inc/errors.h"
 #include "../inc/colors.h"
 
-void help(char *error)
-{
-    printf("%s%s%s\n\n", BRED, error, RES);
-    printf("\t%sUsage: ./philo <n_philos> <time_to_die> <time_to_eat> <time_to_sleep>\n", BMAG);
-    printf("<time_to_sleep> [n_times_each_philospher_eat]\n");
-}
+
+// int is_zero(char **argv)
+// {
+//     int i;
+
+//     i = 1;
+//     while (argv[i][0] != '-' && argv[i + 1][0])
+//     {
+//         if (argv[i][0] == '0')
+//             return (1);
+//         i++;        
+//         write(1, "is_zero\n", 8);
+//     }
+//     return (0);
+// }
     
+// if (is_zero(argv) == 1)
+//     return (help(ARGC_ERROR),EXIT_FAILURE);
 
 
 int main(int argc, char **argv)
@@ -32,11 +43,12 @@ int main(int argc, char **argv)
         return (help(ARGC_ERROR), EXIT_FAILURE);
     if (args_parsing(&table, argv))
         return (EXIT_FAILURE);
+    if (table.n_philos <= 1) 
+        return (1);
     if (data_init(&table))
         return(EXIT_FAILURE);
-    // // // print_info(table);
-    // if(start_simulation(&table))
-    // //     return(EXIT_FAILURE);
+    if(start_simulation(&table))
+        return(EXIT_FAILURE);
     // safe_exit(&table);
     return(EXIT_SUCCESS);
 }

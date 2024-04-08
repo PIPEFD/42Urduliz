@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 10:55:16 by codespace         #+#    #+#             */
-/*   Updated: 2024/04/03 14:56:54 by codespace        ###   ########.fr       */
+/*   Updated: 2024/04/06 01:54:34 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static long  ft_atol(long *nbr, char *str, long i)
     }
     while (str[j] >= '0' && str[j] <= '9')
     {
-        *nbr = *nbr * 10 + (str[j] - 0);
+        *nbr = *nbr * 10 + (str[j] - '0');
         j++;
     }
     if (str[j] || ((*nbr == 0) && (i == 1 || i == 5)) || *nbr > INT_MAX)
@@ -43,13 +43,16 @@ static long  ft_atol(long *nbr, char *str, long i)
 static void fill_data(t_table *table, long nbr, long i)
 {
     if (i == 1)
-        table->n_philos     =	nbr;
+        table->n_philos     =	nbr; 
+                     
     if (i == 2)
         table->time_die     =   nbr;
     if (i == 3)
         table->time_eat		=	nbr;
     if (i == 4)
         table->time_sleep   =   nbr;
+    if (i == 5)
+        table->n_time_eat	=	nbr;   
 
 
 }
@@ -57,11 +60,10 @@ int args_parsing(t_table *table, char **argv)
 {
     long    i;
     long    nbr;
-    
     memset(table, 0, sizeof(t_table));
     i = 0;
     nbr = 0;
-    while (argv[++i])
+    while (argv[++i] )
     {
         if (ft_atol(&nbr, argv[i], i) == 0)
         {
@@ -72,11 +74,11 @@ int args_parsing(t_table *table, char **argv)
             else if (nbr > INT_MAX)
                 return (help(INT_MAX_ERROR), 1);
             else   
-                return (help(NUMBER_ERROR), 1);
-            
+                return (help(NUMBER_ERROR), 1);     
         }
         else
             fill_data(table, nbr, i);
+        write(1, "args_parsing\n", 13);
         nbr = 0;
     }
     return (0);

@@ -6,7 +6,7 @@
 #    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/23 15:02:50 by codespace         #+#    #+#              #
-#    Updated: 2024/04/04 13:56:58 by codespace        ###   ########.fr        #
+#    Updated: 2024/04/08 08:52:34 by codespace        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,11 +19,11 @@ SRC_FILES	= 	main.c \
 				parsing.c \
 				utils.c \
 				data_init.c \
-# print.c \
-# simulation.c \
-# thread_safe_functions.c \
-# actions.c \
-# syncro_utils.c \
+				simulation.c \
+				thread_safe.c \
+				syncro.c \
+				routines.c \
+				print.c \
 # exit.c 
 				
 SRC 		= $(addprefix $(SRC_DIR), $(SRC_FILES))
@@ -33,7 +33,7 @@ OBJ_DIR		= objs/
 OBJS_FILES	= $(SRC:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 
 
-CC			= gcc 
+CC			= gcc -fsanitize=address
 FLAGS		= -Wall -Wextra -Werror
 INC			=  -I inc/
 THREADS		= -lpthread

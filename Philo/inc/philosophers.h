@@ -73,14 +73,57 @@ struct s_table
     t_mtx   control_mtx;
 };
 
+// Valid arguments
+
 int     args_parsing(t_table *table, char **argv);
+
+// Data initialization 
 int     data_init(t_table *table);
+// Error and help
+
 void    help(char *error);
+
+// Verification functions
+
 bool    is_space(char c);
 bool    is_sign(char c);
 
+// Simulation functions
+long get_time(t_time_format time_format);
+
+int     start_simulation(t_table *table);
+bool	is_simulation_finish(t_table *table);
+void    simulation_fair(t_philo *philo);
+void    usleep_mod(long wait_time, t_table *table);
 
 
+// Control functions
+bool get_bool(t_mtx *mtx, bool value);
+long get_long(t_mtx *mtx, long *value);
+void set_bool(t_mtx *mtx, bool *var, bool value);
+void set_long(t_mtx *mtx, long *var, long value);
 
+
+// Print functions
+void print_action(t_action action, t_table *table, t_philo philo);
+
+
+// Control of threads
+
+void	wait_all_threads(t_table *table);
+
+
+// Simulation functions
+
+// Control of actions
+
+void    eating(t_philo *philo);
+void    thinking(t_philo *philo);
+bool    is_dead(t_philo *philo);
+
+
+// Control of Philosophs
+bool	all_philos_running(t_mtx *mtx, t_table *table);
+void	increment_n_philos(t_table *table);
 
 #endif 
