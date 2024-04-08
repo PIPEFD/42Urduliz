@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
+#    By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/23 15:02:50 by codespace         #+#    #+#              #
-#    Updated: 2024/04/08 08:52:34 by codespace        ###   ########.fr        #
+#    Updated: 2024/04/08 16:26:53 by dbonilla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,12 +17,12 @@ NAME		=	PHILOSOPHERS
 SRC_DIR		= 	src/
 SRC_FILES	= 	main.c \
 				parsing.c \
-				utils.c \
 				data_init.c \
 				simulation.c \
-				thread_safe.c \
 				syncro.c \
+				thread_safe.c \
 				routines.c \
+				utils.c \
 				print.c \
 # exit.c 
 				

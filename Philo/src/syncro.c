@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   syncro.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 10:07:05 by codespace         #+#    #+#             */
-/*   Updated: 2024/04/08 11:16:14 by codespace        ###   ########.fr       */
+/*   Updated: 2024/04/08 18:01:43 by dbonilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	wait_all_threads(t_table *table)
 {
     write(1, "Waiting all threads\n", 20);
-	while (!get_bool(&table->table_mtx, &table->all_philos_running))
+	while (get_bool(&table->table_mtx, &table->all_philos_running))
 		;
 }
 

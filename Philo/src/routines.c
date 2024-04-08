@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routines.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 19:35:09 by codespace         #+#    #+#             */
-/*   Updated: 2024/04/08 11:21:41 by codespace        ###   ########.fr       */
+/*   Updated: 2024/04/08 17:59:07 by dbonilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 void eating(t_philo *philo)
 {
-    // printf("philo->first_fork->id = %d\n", philo->first_fork->id);
-    write(1, "Eating\n", 7);
     pthread_mutex_lock(&philo->first_fork->fork_mtx);
     print_action(TAKING_A_FIRST_FORK, philo->table, *philo);
     pthread_mutex_lock(&philo->second_fork->fork_mtx);

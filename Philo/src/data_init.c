@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   data_init.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:43:22 by codespace         #+#    #+#             */
-/*   Updated: 2024/04/08 11:18:33 by codespace        ###   ########.fr       */
+/*   Updated: 2024/04/08 18:21:54 by dbonilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,13 @@
 
 static int mem_alloc(t_table *table)
 {
+    table->start_sim = false;
     table->end_sim = false;
     table->all_philos_running = false;
     table->n_philos_running = 0;
-    table->start_sim = false;
     table->philos = malloc(table->n_philos * sizeof(t_philo));
-    if (!table->philos) {
+    if (!table->philos) 
+    {
         return (1);
     }
     table->forks = malloc(table->n_philos * sizeof(t_fork));
@@ -147,6 +148,9 @@ int data_init(t_table *table)
         free(table->philos);
         return(printf("%s"MUTEX_ERROR"%s\n", RED, RES), 1);
     }
+    write(1, "data_init\n", 10);
+    return(0);
+}
     // printf("\n\ntable->philos[i].id = %d\n", table->philos->id);
     // printf("table->philos[i].meal_counter = %ld\n", table->philos->meal_counter);
     // printf("table->philos[i].last_meal_time = %ld\n", table->philos->last_meal_time);
@@ -154,9 +158,6 @@ int data_init(t_table *table)
     // printf("end_sim = %d\n", table->end_sim);
     // printf("all_philos_running = %d\n", table->all_philos_running);
     // printf("n_philos_running = %ld\n\n", table->n_philos_running);
-    write(1, "data_init\n", 10);
-    return(0);
-}
     // int i = 0;
     // while (i  < 4)
     // {    
