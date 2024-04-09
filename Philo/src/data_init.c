@@ -6,7 +6,7 @@
 /*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:43:22 by codespace         #+#    #+#             */
-/*   Updated: 2024/04/08 18:39:31 by dbonilla         ###   ########.fr       */
+/*   Updated: 2024/04/09 19:27:44 by dbonilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,22 @@
 
 static int mem_alloc(t_table *table)
 {
-    // table->start_sim = false;
-    // table->end_sim = false;
-    // table->all_philos_running = false;
-    // table->n_philos_running = 0;
+    table->start_sim = false;
+    table->end_sim = false;
+    table->all_philos_running = false;
+    table->n_philos_running = 0;
+    table->start_time = 0;
     table->philos = malloc(table->n_philos * sizeof(t_philo));
     if (!table->philos) 
     {
+        free(table->forks); 
         return (1);
     }
     table->forks = malloc(table->n_philos * sizeof(t_fork));
     if (!table->forks) 
-    {
-        free(table->philos); 
-        free(table->forks);
         return (1);
-    }
-
     return 0;
 }
-
-
 static int mutex_init(t_table *table)
 {
     int i;
@@ -78,38 +73,14 @@ static void assing_forks(t_philo *philo, t_fork *forks, unsigned int philo_pos)
     }
 }
 
-// static void assing_forks(int ss, t_fork *forks, unsigned int philo_pos)
-// {
-    
-//     if (ss % 2 == 0)
-//     {
-//         philo.first_fork = &forks[philo_pos];
-//         printf("Fork 1: %d\n", philo.first_fork->id);
-//         printf("philo_pos: %d\n", philo_pos);
-//         philo.second_fork = &forks[(philo_pos + 1) % ss];
-//         printf("Fork 2: %d\n", philo.first_fork->id);
-//         printf("philo_pos: %d\n", philo_pos);
-//     }
-//     else
-//     {
-//         philo.first_fork = &forks[(philo_pos) % ss];
-//         printf("Fork 1: %d\n", philo.first_fork->id);
-//         printf("philo_pos: %d\n", philo_pos);
-//         philo.second_fork = &forks[philo_pos - 1];
-//         printf("Fork 2: %d\n", philo.first_fork->id);
-//         printf("philo_pos: %d\n", philo_pos);
-//     }
-// }
-
-
 static int philos_init(t_table *table)
 {
     int i;
 
-    i = 0;
-    while(i < table->n_philos)
+    i = -1;
+    while(++i < table->n_philos)
     {
-        table->philos[i].id = i + 1 ;
+        table->philos[i].id = i + 1;
         table->philos[i].meal_counter = 0;
         table->philos[i].last_meal_time = 0;
         table->philos[i].is_full = false;
@@ -121,12 +92,6 @@ static int philos_init(t_table *table)
             return(1);
         }
         assing_forks(&table->philos[i], table->forks, i);
-        printf("-> AQUI  DATA_INIT N_PHILOS: %ld\n", table->n_philos);
-        printf("-> AQUI  DATA_INIT TIME_DIE: %ld\n", table->time_die);
-        printf("-> AQUI  DATA_INIT TIME_EAT: %ld\n", table->time_eat);
-        printf("-> AQUI  DATA_INIT TIME_SLEEP: %ld\n", table->time_sleep);
-        printf("-> AQUI  DATA_INIT N_TIME_EAT: %ld\n", table->n_time_eat);
-        i++;
     }
     return(0);
 }
@@ -145,15 +110,3 @@ int data_init(t_table *table)
     write(1, "data_init\n", 10);
     return(0);
 }
-    // printf("\n\ntable->philos[i].id = %d\n", table->philos->id);
-    // printf("table->philos[i].meal_counter = %ld\n", table->philos->meal_counter);
-    // printf("table->philos[i].last_meal_time = %ld\n", table->philos->last_meal_time);
-    // printf("table->philos[i].is_full = %d\n", table->philos->is_full);
-    // printf("end_sim = %d\n", table->end_sim);
-    // printf("all_philos_running = %d\n", table->all_philos_running);
-    // printf("n_philos_running = %ld\n\n", table->n_philos_running);
-    // int i = 0;
-    // while (i  < 4)
-    // {    
-    // i++;
-    // }

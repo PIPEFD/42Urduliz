@@ -6,7 +6,7 @@
 /*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 10:52:49 by codespace         #+#    #+#             */
-/*   Updated: 2024/04/08 16:57:42 by dbonilla         ###   ########.fr       */
+/*   Updated: 2024/04/09 15:08:58 by dbonilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,10 @@ int main(int argc, char **argv)
         return (1);
     if (data_init(&table))
         return(EXIT_FAILURE);
+    print_info(table);
     if(start_simulation(&table))
         return(EXIT_FAILURE);
-    // safe_exit(&table);
+    safe_exit(&table);
     return(EXIT_SUCCESS);
 }
 

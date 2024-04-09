@@ -6,7 +6,7 @@
 /*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 19:35:09 by codespace         #+#    #+#             */
-/*   Updated: 2024/04/08 17:59:07 by dbonilla         ###   ########.fr       */
+/*   Updated: 2024/04/09 22:19:13 by dbonilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 void eating(t_philo *philo)
 {
+    
     pthread_mutex_lock(&philo->first_fork->fork_mtx);
     print_action(TAKING_A_FIRST_FORK, philo->table, *philo);
     pthread_mutex_lock(&philo->second_fork->fork_mtx);

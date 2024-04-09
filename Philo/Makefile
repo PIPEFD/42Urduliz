@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/02/23 15:02:50 by codespace         #+#    #+#              #
-#    Updated: 2024/04/08 16:26:53 by dbonilla         ###   ########.fr        #
+#    Created: 2024/04/09 18:57:58 by dbonilla          #+#    #+#              #
+#    Updated: 2024/04/09 22:35:27 by dbonilla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRC_FILES	= 	main.c \
 				routines.c \
 				utils.c \
 				print.c \
-# exit.c 
+				exit.c \
 				
 SRC 		= $(addprefix $(SRC_DIR), $(SRC_FILES))
 
@@ -33,7 +33,7 @@ OBJ_DIR		= objs/
 OBJS_FILES	= $(SRC:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 
 
-CC			= gcc -fsanitize=address
+CC			= gcc -g
 FLAGS		= -Wall -Wextra -Werror
 INC			=  -I inc/
 THREADS		= -lpthread
@@ -80,4 +80,3 @@ fclean:		clean
 re:			fclean all
 
 .PHONY:		all clean fclean re libft print
-

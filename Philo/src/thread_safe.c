@@ -6,7 +6,7 @@
 /*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 09:37:39 by codespace         #+#    #+#             */
-/*   Updated: 2024/04/08 17:15:06 by dbonilla         ###   ########.fr       */
+/*   Updated: 2024/04/09 18:24:10 by dbonilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@ bool get_bool(t_mtx *mtx, bool *value)
     pthread_mutex_lock(mtx);
     if (value != NULL) {
         ret = *value;
+        // printf("get_bool %i\n", ret);
     }
     pthread_mutex_unlock(mtx);
-    return ret;    
+    return (ret);    
 }
 
 long get_long(t_mtx *mtx, long *value)
@@ -59,3 +60,10 @@ void increment_n_philos(t_table *table)
         set_bool(&table->control_mtx, &table->all_philos_running, true);
     pthread_mutex_unlock(&table->table_mtx);
 }
+
+// void	increment_n_philos(t_mtx *mutex, long *value)
+// {	
+// 	pthread_mutex_lock(mutex);
+// 	(*value)++;
+// 	pthread_mutex_unlock(mutex);
+// }

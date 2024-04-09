@@ -109,9 +109,11 @@ void    set_long(t_mtx *mtx, long *var, long value);
 // Print functions
 void    print_action(t_action action, t_table *table, t_philo philo);
 
+void	print_info(t_table table);
 
 // Control of threads
 void	wait_all_threads(t_table *table);
+void	safe_exit(t_table *table);
 
 
 // Control of actions
@@ -122,7 +124,14 @@ bool    is_dead(t_philo *philo);
 
 
 // Control of Philosophs
-bool	all_philos_running(t_mtx *mtx, t_table *table);
-void	increment_n_philos(t_table *table);
+// bool	all_philos_running(t_mtx *mtx, t_table *table);
+// void	increment_n_philos(t_table *table);
 
+
+//PROOFS
+
+bool	all_philos_running(t_mtx *mutex, long *threads,
+		long philo_nbr);
+
+// void increment_n_philos(t_mtx *mtx, long *n_philos_running);
 #endif 
