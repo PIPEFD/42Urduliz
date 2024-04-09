@@ -3,18 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   simulation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 01:36:05 by codespace         #+#    #+#             */
-/*   Updated: 2024/04/08 21:55:42 by dbonilla         ###   ########.fr       */
+/*   Updated: 2024/04/08 23:30:24 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philosophers.h"
 #include "../inc/errors.h"
 #include "../inc/colors.h"
-#include <stdio.h>
-#include <unistd.h>
 
 void *philo_routine(void *data)
 {
@@ -24,7 +22,7 @@ void *philo_routine(void *data)
     philo->last_meal_time = get_time(MILISECONDS);
     increment_n_philos(philo->table);
     simulation_fair(philo); 
-  while (is_simulation_finish(philo->table) || philo->table->start_sim != true)
+    while (!is_simulation_finish(philo->table))
     {
      
         eating(philo);
@@ -32,46 +30,35 @@ void *philo_routine(void *data)
             break;
         print_action(SLEEPING, philo->table, *philo);
         usleep_mod(philo->table->time_sleep * 1e3, philo->table);
+        print_action(THINKING, philo->table, *philo);
         thinking(philo);
+        // usleep_mod(philo->table->time_sleep * 1e6, philo->table);
+
     }
     return (NULL);
 }
        
-static void *supervisor_routine(void *data)
+static void	*supervisor_routine(void *data)
 {
-    t_table     *table;
-    unsigned int    i;
- //   char c;
-    
-    table = (t_table *)data;
-    // printf("supervisor paso 1 \n");
-    while (!all_philos_running(&table->control_mtx, table))
-    
-        // printf("supervisor paso while\n");
-        // printf("result %d \n", all_philos_running(&table->control_mtx, table));
-//        read(1, &c, 1);
-        ;
-    // printf("supervisor paso 2\n");
-    // printf("final simulación %i\n", is_simulation_finish(table));
-    while (!is_simulation_finish(table))
-    {
-        i =-1;
-        // printf("routine antes\n");
-        // printf("philos %li \t simulación %i\n", table->n_philos, is_simulation_finish(table));
-        while (++i <= table->n_philos && !is_simulation_finish(table))
-        {
-            // write(1, "Supervisor routine\n", 20);
-           if(is_dead(&table->philos[i]) == true)
-            {           
-                // printf("Philosopher %d died\n", table->philos[i].id);
-                set_bool(&table->control_mtx, &table->end_sim, true);
-                print_action(DEAD, table, table->philos[i]);
-                break;
-            }
-  //          break;
-        }
-    }
-    return (NULL);
+	t_table			*table;
+	unsigned int	i;
+
+	table = (t_table *)data;
+	while (all_philos_running(&table->control_mtx, table) == false)
+		;
+	while (is_simulation_finish(table) == false)
+	{
+		i = -1;
+		while (++i < table->n_philos && is_simulation_finish(table) == false)
+		{
+			if (is_dead(&table->philos[i]) == true)
+			{
+				print_action(DEAD, table, table->philos[i]);
+				set_bool(&table->control_mtx, &table->end_sim, true);
+			}
+		}
+	}
+	return (NULL);
 }
 
 int start_simulation(t_table *table)

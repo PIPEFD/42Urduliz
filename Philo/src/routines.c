@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routines.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 19:35:09 by codespace         #+#    #+#             */
-/*   Updated: 2024/04/08 17:59:07 by dbonilla         ###   ########.fr       */
+/*   Updated: 2024/04/08 23:35:52 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,6 @@ void thinking(t_philo *philo)
         return ;
     t_think = (philo->table->time_eat * 2 - philo->table->time_sleep) * 1e3;
     if (t_think < 0)
-        t_think = 0;
-    usleep_mod(t_think * 0.5, philo->table);
+        t_think = 0;        
+    usleep_mod(t_think * 0.32, philo->table);
 }

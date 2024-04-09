@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   data_init.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 13:43:22 by codespace         #+#    #+#             */
-/*   Updated: 2024/04/08 18:39:31 by dbonilla         ###   ########.fr       */
+/*   Updated: 2024/04/08 23:21:13 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,18 +64,18 @@ static int mutex_init(t_table *table)
     return(0);
 }
 
-static void assing_forks(t_philo *philo, t_fork *forks, unsigned int philo_pos)
+static void	assing_forks(t_philo *philo, t_fork *forks, unsigned int philo_pos)
 {
-    if (philo->id % 2 == 0)
-    {
-        philo->first_fork = &(forks[philo_pos]);
-        philo->second_fork = &(forks[philo_pos + 1 % philo->table->n_philos]);
-    }
-    else
-    {
-        philo->first_fork = &(forks[(philo_pos + 1 % philo->table->n_philos)]);
-        philo->second_fork = &(forks[philo_pos]);    
-    }
+	if (philo->id % 2 == 0)
+	{
+		philo->first_fork = &(forks[philo_pos]);
+		philo->second_fork = &(forks[(philo_pos + 1) % philo->table->n_philos]);
+	}
+	else
+	{
+		philo->first_fork = &(forks[(philo_pos + 1) % philo->table->n_philos]);
+		philo->second_fork = &(forks[philo_pos]);
+	}
 }
 
 // static void assing_forks(int ss, t_fork *forks, unsigned int philo_pos)
@@ -121,11 +121,11 @@ static int philos_init(t_table *table)
             return(1);
         }
         assing_forks(&table->philos[i], table->forks, i);
-        printf("-> AQUI  DATA_INIT N_PHILOS: %ld\n", table->n_philos);
-        printf("-> AQUI  DATA_INIT TIME_DIE: %ld\n", table->time_die);
-        printf("-> AQUI  DATA_INIT TIME_EAT: %ld\n", table->time_eat);
-        printf("-> AQUI  DATA_INIT TIME_SLEEP: %ld\n", table->time_sleep);
-        printf("-> AQUI  DATA_INIT N_TIME_EAT: %ld\n", table->n_time_eat);
+        // printf("-> AQUI  DATA_INIT N_PHILOS: %ld\n", table->n_philos);
+        // printf("-> AQUI  DATA_INIT TIME_DIE: %ld\n", table->time_die);
+        // printf("-> AQUI  DATA_INIT TIME_EAT: %ld\n", table->time_eat);
+        // printf("-> AQUI  DATA_INIT TIME_SLEEP: %ld\n", table->time_sleep);
+        // printf("-> AQUI  DATA_INIT N_TIME_EAT: %ld\n", table->n_time_eat);
         i++;
     }
     return(0);
@@ -142,7 +142,7 @@ int data_init(t_table *table)
         free(table->philos);
         return(printf("%s"MUTEX_ERROR"%s\n", RED, RES), 1);
     }
-    write(1, "data_init\n", 10);
+    // write(1, "data_init\n", 10);
     return(0);
 }
     // printf("\n\ntable->philos[i].id = %d\n", table->philos->id);

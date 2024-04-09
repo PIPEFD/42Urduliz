@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+         #
+#    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/23 15:02:50 by codespace         #+#    #+#              #
-#    Updated: 2024/04/08 16:26:53 by dbonilla         ###   ########.fr        #
+#    Updated: 2024/04/08 22:36:16 by codespace        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRC_FILES	= 	main.c \
 				routines.c \
 				utils.c \
 				print.c \
-# exit.c 
+				exit.c \
 				
 SRC 		= $(addprefix $(SRC_DIR), $(SRC_FILES))
 

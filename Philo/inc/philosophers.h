@@ -112,13 +112,15 @@ void    print_action(t_action action, t_table *table, t_philo philo);
 
 // Control of threads
 void	wait_all_threads(t_table *table);
-
+void    print_info(t_table table);
 
 // Control of actions
 
 void    eating(t_philo *philo);
-void    thinking(t_philo *philo);
+void thinking(t_philo *philo);
 bool    is_dead(t_philo *philo);
+void    safe_exit(t_table *table);
+
 
 
 // Control of Philosophs

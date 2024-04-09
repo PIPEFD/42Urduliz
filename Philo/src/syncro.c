@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   syncro.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/07 10:07:05 by codespace         #+#    #+#             */
-/*   Updated: 2024/04/08 19:40:18 by dbonilla         ###   ########.fr       */
+/*   Updated: 2024/04/08 23:23:56 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,15 @@
 
 void	wait_all_threads(t_table *table)
 {
-    write(1, "Waiting all threads\n", 20);
-	while (get_bool(&table->table_mtx, &table->all_philos_running))
+    // write(1, "Waiting all threads\n", 20);
+	while (get_bool(&table->table_mtx, &table->all_philos_running) == false)
 		;
 }
 
 
 bool all_philos_running(t_mtx *mutex, t_table *table)
 {
-    printf("get_bool %i\n", get_bool(mutex, &table->all_philos_running));
+    // printf("get_bool %i\n", get_bool(mutex, &table->all_philos_running));
     return (get_bool(mutex, &table->all_philos_running));
 }
 

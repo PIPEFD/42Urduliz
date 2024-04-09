@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   thread_safe.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 09:37:39 by codespace         #+#    #+#             */
-/*   Updated: 2024/04/08 17:15:06 by dbonilla         ###   ########.fr       */
+/*   Updated: 2024/04/08 23:25:05 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 bool get_bool(t_mtx *mtx, bool *value)
 {
     bool ret;
-    ret = false;
+    // ret = false;
 
     pthread_mutex_lock(mtx);
-    if (value != NULL) {
+    // if (value != NULL) {
         ret = *value;
-    }
+    // }
     pthread_mutex_unlock(mtx);
     return ret;    
 }
@@ -29,11 +29,11 @@ bool get_bool(t_mtx *mtx, bool *value)
 long get_long(t_mtx *mtx, long *value)
 {
     long ret; 
-    ret = 0;
+    // ret = 0;
     pthread_mutex_lock(mtx);
-    if (value != NULL){
+    // if (value != NULL){
         ret = *value;
-    }
+    // }
     pthread_mutex_unlock(mtx);
     return ret;    
 }

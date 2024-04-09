@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 11:01:59 by codespace         #+#    #+#             */
-/*   Updated: 2024/04/08 21:51:24 by dbonilla         ###   ########.fr       */
+/*   Updated: 2024/04/08 23:27:19 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ long get_time(t_time_format time_format)
     
     gettimeofday(&time, NULL);
     if(time_format == MILISECONDS)
-        return ((time.tv_usec * 1e3) + (time.tv_usec / 1e3));
+        return ((time.tv_sec * 1e3) + (time.tv_usec / 1e3));
     else if (time_format == MICROSECONDS)
-        return ((time.tv_usec * 1e3) + (time.tv_usec / 1e3));
+        return ((time.tv_sec * 1e3) + time.tv_usec );
     return (42);
 
 }
@@ -38,7 +38,7 @@ bool  is_dead(t_philo *philo)
     long dif;
     long last_meal;
     last_meal = get_long(&philo->philo_mtx, &philo->last_meal_time);
-    printf("last_meal %li\n", last_meal);
+    // printf("last_meal %li\n", last_meal);
     dif = get_time(MILISECONDS) - last_meal;
     return (dif > philo->table->time_die);
 }

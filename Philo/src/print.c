@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 07:02:00 by codespace         #+#    #+#             */
-/*   Updated: 2024/04/08 18:40:31 by dbonilla         ###   ########.fr       */
+/*   Updated: 2024/04/08 23:05:16 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,25 @@ void help(char *error)
     printf("<time_to_sleep> [n_times_each_philospher_eat]\n");
 }
 
-
+void print_info(t_table table)
+{
+    printf("\n%s----------> INPUT <--------\n|\n", BBLU);
+    printf("|--> %s Total Philos = %zu philos%s\n", \
+                                GRN, table.n_philos, BBLU);
+    printf("|--> %s Time To die = %zu philos%s\n", \
+                                GRN, table.time_die, BBLU);
+    printf("|--> %s Time To eat = %zu philos%s\n", \
+                                GRN, table.time_eat, BBLU);
+    printf("|--> %s Time To sleep = %zu philos%s\n", \
+                                GRN, table.time_sleep, BBLU);
+    if(table.n_time_eat == -1)
+        printf ("|--> %sNumber Meals = not_specified%s\n",MAG, BBLU);
+    else
+        printf ("|--> %sNumber Meals = %zu meals%s\n", \
+                                        MAG, table.n_time_eat, BBLU);
+    printf("\n\n        %s-- %s STARTING SIMULATION %s %s\n\n", \
+                                                        BGRN, GRN, BGRN, RES);
+}
 void print_action(t_action action, t_table *table,t_philo philo)
 {
     size_t start_time;
