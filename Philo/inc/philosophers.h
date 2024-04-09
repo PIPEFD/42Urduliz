@@ -114,6 +114,7 @@ void	print_info(t_table table);
 // Control of threads
 void	wait_all_threads(t_table *table);
 void	safe_exit(t_table *table);
+void    increment_n_philos(t_table *table);
 
 
 // Control of actions

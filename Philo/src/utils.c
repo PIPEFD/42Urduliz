@@ -40,7 +40,11 @@ bool  is_dead(t_philo *philo)
         return (false); 
     elapsed_time =  get_time(MILISECONDS) - get_long(&philo->philo_mtx, &philo->last_meal_time);
     // printf("last_meal %li\n", last_meal);
-    t_to_die = philo->table->time_die / 1e3;
+    //printf("elapsed_time %li\n", elapsed_time);
+    //printf("time_die %li\n", philo->table->time_die);
+    t_to_die = philo->table->time_die;
+    //printf("t_to_die %li\n", t_to_die);
+    //printf("philo id: %i\n", philo->id);
     if (elapsed_time > t_to_die)
         return (true);
     return (false);

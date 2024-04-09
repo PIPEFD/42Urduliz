@@ -25,9 +25,13 @@ bool	all_philos_running(t_mtx *mutex, long *threads,
 	bool	ret;
 
 	ret = false;
+    //printf("thread %ld\n", *threads);
 	pthread_mutex_lock(mutex);
 	if (*threads == philo_nbr)
+    {
 		ret = true;
+    }
+    // printf("ret " );
 	pthread_mutex_unlock(mutex);
 	return (ret);
 }

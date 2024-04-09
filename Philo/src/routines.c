@@ -15,7 +15,7 @@
 
 void eating(t_philo *philo)
 {
-    
+
     pthread_mutex_lock(&philo->first_fork->fork_mtx);
     print_action(TAKING_A_FIRST_FORK, philo->table, *philo);
     pthread_mutex_lock(&philo->second_fork->fork_mtx);
@@ -25,7 +25,7 @@ void eating(t_philo *philo)
     philo->meal_counter++;
     if (philo->meal_counter == philo->table->n_time_eat)
         philo->is_full = true;
-    usleep_mod(philo->table->time_eat * 1000, philo->table);
+    usleep_mod(philo->table->time_eat * 1e3, philo->table);
     pthread_mutex_unlock(&philo->first_fork->fork_mtx);
     pthread_mutex_unlock(&philo->second_fork->fork_mtx);    
 }
