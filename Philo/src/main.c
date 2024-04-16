@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 10:52:49 by codespace         #+#    #+#             */
-/*   Updated: 2024/04/09 15:08:58 by dbonilla         ###   ########.fr       */
+/*   Updated: 2024/04/09 20:53:42 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int main(int argc, char **argv)
         return (1);
     if (data_init(&table))
         return(EXIT_FAILURE);
-    print_info(table);
+    // print_info(table);
     if(start_simulation(&table))
         return(EXIT_FAILURE);
     safe_exit(&table);

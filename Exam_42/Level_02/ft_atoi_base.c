@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/23 11:41:27 by codespace         #+#    #+#             */
-/*   Updated: 2024/03/30 14:23:37 by codespace        ###   ########.fr       */
+/*   Updated: 2024/04/16 15:39:15 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int ft_atoi(char *s)
     int result = 0; // Inicializa el resultado como 0
 
     // Ignora los espacios en blanco al principio de la cadena
-    while (s[i] == 32 || (s[i] >= 9 && s[i] <= 13))
+    while (is_blank(s[i]))
         i++;
     
     // Determina el signo del número

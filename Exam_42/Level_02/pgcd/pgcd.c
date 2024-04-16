@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 23:16:18 by codespace         #+#    #+#             */
-/*   Updated: 2024/03/28 23:16:19 by codespace        ###   ########.fr       */
+/*   Updated: 2024/04/16 14:25:09 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,17 @@ void pgcd(char *a, char *b)
         // 🔄 Algoritmo para encontrar el PGCD usando el método de Euclides
         while (i != j)
         {
+            printf("%d == NUMBER_1\n", i);
+            printf("%d == NUMBER_2\n", j);
             if (i > j)
+            
                 i = i - j;
             else
                 j = j - i;
         }
         // 🖨️ Imprime el PGCD calculado
         printf("%d", i);
+        printf("%d", j);
     }
 }
 

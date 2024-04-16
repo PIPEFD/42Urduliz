@@ -1,0 +1,23 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    subject.es.txt                                     :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/04/15 15:46:34 by codespace         #+#    #+#              #
+#    Updated: 2024/04/15 15:47:23 by codespace        ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+Assignment name  : ft_swap
+Expected files   : ft_swap.c
+Allowed functions: 
+--------------------------------------------------------------------------------
+
+Escribe una función que intercambie los contenidos de
+dos enteros cuyas direcciones se pasan como parámetros.
+
+Tu función debe ser declarada de la siguiente manera:
+
+void	ft_swap(int *a, int *b);

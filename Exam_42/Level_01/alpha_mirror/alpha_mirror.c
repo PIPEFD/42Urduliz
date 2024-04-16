@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/22 23:18:02 by codespace         #+#    #+#             */
-/*   Updated: 2024/03/28 22:20:05 by codespace        ###   ########.fr       */
+/*   Updated: 2024/04/16 07:24:00 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,20 @@
 // Función para reflejar cada letra del alfabeto en su opuesta
 void alpha_mirror(char *s)
 {
-    int i = 0; // Índice para recorrer la cadena
-
     // 🔄 Itera sobre la cadena hasta encontrar el carácter nulo que indica el final de la cadena
-    while (s[i])
+    while (*s)
     {
         // 📌 Si el carácter es una letra mayúscula
-        if (s[i] >= 'A' && s[i] <= 'Z')
+        if (*s >= 'A' && *s <= 'Z')
             // 🔄 Calcula el espejo de la letra en mayúscula (por ejemplo, 'A' -> 'Z', 'B' -> 'Y', ...)
-            s[i] = 90 - s[i] + 65;
+            *s = 155 - *s;
         // 📌 Si el carácter es una letra minúscula
-        else if (s[i] >= 'a' && s[i] <= 'z')
+        else if (*s >= 'a' && *s <= 'z')
             // 🔄 Calcula el espejo de la letra en minúscula (por ejemplo, 'a' -> 'z', 'b' -> 'y', ...)
-            s[i] = 122 - s[i] + 97;
-
+            *s =  219 - *s ;
         // ✍️ Escribe el carácter reflejado en la salida estándar
-        write(1, &s[i], 1);
-        i++; // ➡️ Avanza al siguiente carácter en la cadena
+        write(1, &*s, 1);
+        s++; // ➡️ Avanza al siguiente carácter en la cadena
     }
 }
 

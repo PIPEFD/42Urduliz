@@ -3,22 +3,21 @@
 // Función para cifrar una cadena utilizando el cifrado ROT13
 void rot_13(char *s)
 {
-    int i = 0;
     // 🔄 Itera sobre la cadena hasta encontrar el carácter nulo que indica el final de la cadena
-    while (s[i])
+    while (*s)
     {
         // 📌 Si el carácter es una letra minúscula
-        if (s[i] >= 'a' && s[i] <= 'z')
+        if (*s >= 'a' && *s <= 'z')
             // 🔠 Aplica el cifrado ROT13 (desplazamiento de 13 posiciones en el alfabeto)
-            s[i] = ((s[i] - 'a' + 13) % 26) + 'a';
+            *s = ((*s - 'a' + 13) % 26) + 'a';
         // 📌 Si el carácter es una letra mayúscula
-        else if (s[i] >= 'A' && s[i] <= 'Z')
+        else if (*s >= 'A' && *s <= 'Z')
             // 🔠 Aplica el cifrado ROT13 (desplazamiento de 13 posiciones en el alfabeto)
-            s[i] = ((s[i] - 'A' + 13) % 26) + 'A';
+            *s = ((*s - 'A' + 13) % 26) + 'A';
         // ✍️ Escribe el carácter cifrado en la salida estándar
-        write(1, &s[i], 1);
+        write(1, &*s, 1);
         // ➡️ Incrementa el índice para pasar al siguiente carácter
-        i++;
+        s++;
     }
 }
 

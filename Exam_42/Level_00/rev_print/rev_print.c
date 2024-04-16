@@ -6,22 +6,24 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 12:06:33 by codespace         #+#    #+#             */
-/*   Updated: 2024/04/01 12:06:34 by codespace        ###   ########.fr       */
+/*   Updated: 2024/04/15 16:09:16 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
 // 🔁 Función para imprimir una cadena al revés en stdout
-void rev_print(char *str)
+void rev_print(char *s)
 {
-    int i = 0;
-    while (str[i] != '\0') // 🔁 Encuentra el final de la cadena
+    char start = s; // 📌 Guarda la dirección de inicio de la cadena
+    
+    while (*s != '\0') // 🔁 Encuentra el final de la cadena
     {
-        i++;
+        s++; // ➡️ Avanza al siguiente carácter
     }
-    while (str[--i]) // 🖨️🔁 Imprime los caracteres en orden inverso
-        write(1, &str[i], 1); // 🔁 Escribe cada carácter en stdout
+    s--; // 🔻 Retrocede un carácter para apuntar al último carácter de la cadena
+    while (s >= start) // 🔁 Imprime la cadena al revés
+        write(1, &s, 1); // 🖨️🔁 Escribe cada carácter en stdout
 }
 
 int main(int argc, char **argv)

@@ -109,7 +109,7 @@ void    set_long(t_mtx *mtx, long *var, long value);
 // Print functions
 void    print_action(t_action action, t_table *table, t_philo philo);
 
-void	print_info(t_table table);
+// void	print_info(t_table table);
 
 // Control of threads
 void	wait_all_threads(t_table *table);

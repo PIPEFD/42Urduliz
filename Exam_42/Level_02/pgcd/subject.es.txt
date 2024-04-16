@@ -1,0 +1,25 @@
+Assignment name  : pgcd
+Expected files   : pgcd.c
+Allowed functions: printf, atoi, malloc, free
+--------------------------------------------------------------------------------
+
+Escriba un programa que tome dos cadenas que representen dos estrictamente positivas.
+números enteros que caben en un int.
+
+Muestra su máximo común denominador seguido de una nueva línea (siempre es un
+entero estrictamente positivo).
+
+Si el número de parámetros no es 2, muestre una nueva línea.
+
+Examples:
+
+$> ./pgcd 42 10 | cat -e
+2$
+$> ./pgcd 42 12 | cat -e
+6$
+$> ./pgcd 14 77 | cat -e
+7$
+$> ./pgcd 17 3 | cat -e 
+1$
+$> ./pgcd | cat -e
+$

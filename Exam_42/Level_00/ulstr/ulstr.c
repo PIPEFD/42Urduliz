@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 11:50:55 by codespace         #+#    #+#             */
-/*   Updated: 2024/03/30 11:51:38 by codespace        ###   ########.fr       */
+/*   Updated: 2024/04/15 19:06:02 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,20 @@
 
 void ulstr(char *s)
 {
-    int i = 0;
-
     // Recorre la cadena de caracteres
-    while (s[i])
+    while (*s)
     {
         // Si el carácter es una minúscula, conviértelo a mayúscula
-        if (s[i] >= 'a' && s[i] <= 'z')
-            s[i] = s[i] - 32; // 🔄 Convertir a mayúscula
+        if (*s >= 'a' && *s <= 'z')
+            *s = *s - 32; // 🔄 Convertir a mayúscula
         // Si el carácter es una mayúscula, conviértelo a minúscula
-        else if (s[i] >= 'A' && s[i] <= 'Z')
-            s[i] = s[i] + 32; // 🔄 Convertir a minúscula
+        else if (*s >= 'A' && *s <= 'Z')
+            *s = *s + 32; // 🔄 Convertir a minúscula
         
         // Escribe el carácter modificado en la salida estándar
-        write(1, &s[i], 1); // ✍️ Escribir en la salida estándar
-        
+        write(1, &*s, 1); // ✍️ Escribir en la salida estándar
         // Incrementa el índice para pasar al siguiente carácter
-        i++;
+        s++;
     }
 }
 
@@ -40,7 +37,6 @@ int main(int argc, char **argv)
     if (argc == 2)
         // Llama a la función ulstr con el argumento proporcionado
         ulstr(argv[1]);
-
     // Escribe un salto de línea al final del resultado
     write(1, "\n", 1); // 📝 Salto de línea
     

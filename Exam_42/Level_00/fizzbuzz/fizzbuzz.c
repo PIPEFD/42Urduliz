@@ -6,14 +6,14 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 20:48:55 by codespace         #+#    #+#             */
-/*   Updated: 2024/03/30 20:48:57 by codespace        ###   ########.fr       */
+/*   Updated: 2024/04/15 12:52:25 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
 // 🔄 Función recursiva para imprimir un número entero en stdout
-int ft_putnbr(int n)
+void ft_putnbr(int n)
 {
     if (n >= 10)
         ft_putnbr(n / 10); // Llamada recursiva para imprimir los dígitos del número

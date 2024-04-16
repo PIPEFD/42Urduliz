@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   simulation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/06 01:36:05 by codespace         #+#    #+#             */
-/*   Updated: 2024/04/09 22:18:02 by dbonilla         ###   ########.fr       */
+/*   Updated: 2024/04/09 21:14:44 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void *philo_routine(void *data)
         if(philo->is_full == true)
             break;
         print_action(SLEEPING, philo->table, *philo);
-        usleep_mod(philo->table->time_sleep * 1e2, philo->table);
+        usleep_mod(philo->table->time_sleep * 1000, philo->table);
         print_action(THINKING, philo->table, *philo);
         thinking(philo);
     }

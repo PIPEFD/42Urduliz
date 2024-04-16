@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 11:01:59 by codespace         #+#    #+#             */
-/*   Updated: 2024/04/09 20:14:26 by dbonilla         ###   ########.fr       */
+/*   Updated: 2024/04/09 21:17:20 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,11 @@ bool is_sign(char c)
 {
     return ((c == '-') || (c == '+'));
 }
-long	get_time(t_time_format time_format)
+void	get_time()
 {
 	struct timeval	time;
 
-	gettimeofday(&time, NULL);
-    if (MILISECONDS == time_format)
-		return (time.tv_sec * 1e3 + time.tv_usec / 1e3);
-	else if (MICROSECONDS == time_format)
-		return (time.tv_sec * 1e6 + time.tv_usec);
-	return (42);
+	return (time.tv_sec * 1000 + time.tv_usec / 1000);
 }
 bool  is_dead(t_philo *philo)
 {
@@ -40,32 +35,23 @@ bool  is_dead(t_philo *philo)
         return (false); 
     elapsed_time =  get_time(MILISECONDS) - get_long(&philo->philo_mtx, &philo->last_meal_time);
     // printf("last_meal %li\n", last_meal);
-    t_to_die = philo->table->time_die / 1e3;
+    t_to_die = philo->table->time_die / 1e3;Œ
     if (elapsed_time > t_to_die)
         return (true);
     return (false);
 }
 
 
-void usleep_mod(long wait_time, t_table *table)
+// void usleep_mod(long wait_time, t_table *table)
+// {
+int ft_usleep(size_t milliseconds)
 {
-    long    t_start;
-    long    t_curr;
-    long    t_remaining;
+	size_t	start;
 
-    t_start = get_time(MICROSECONDS);
-    while(get_time(MICROSECONDS) - t_start < wait_time)
-    {
-        if (is_simulation_finish(table))
-            break;
-        t_curr = get_time(MICROSECONDS) - t_start;
-        t_remaining = wait_time - t_curr;
-        if (t_remaining > 1e4)
-            usleep(t_remaining / 2);
-        else
-        {
-            while(get_time(MICROSECONDS) - t_start < wait_time)
-                    ;
-        }
-    }
+	start = get_time();
+	while ((get_time() - start) < milliseconds)
+		usleep(500);
+	return (0);
 }
+
+// }

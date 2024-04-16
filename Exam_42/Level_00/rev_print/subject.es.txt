@@ -1,0 +1,31 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    subject.es.txt                                     :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: codespace <codespace@student.42.fr>        +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/04/15 15:59:20 by codespace         #+#    #+#              #
+#    Updated: 2024/04/15 16:00:56 by codespace        ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+Assignment name  : rev_print
+Expected files   : rev_print.c
+Allowed functions: write
+--------------------------------------------------------------------------------
+
+Escribe un programa que tome una cadena y muestre la
+cadena en reversa seguida de un salto de línea.
+
+Si el número de parámetros no es 1,
+el programa muestra un salto de línea.
+
+Ejemplos:
+
+$> ./rev_print "zaz" | cat -e
+zaz$
+$> ./rev_print "dub0 a POIL" | cat -e
+LIOP a 0bud$
+$> ./rev_print | cat -e
+$

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 07:02:00 by codespace         #+#    #+#             */
-/*   Updated: 2024/04/09 22:23:13 by dbonilla         ###   ########.fr       */
+/*   Updated: 2024/04/09 20:53:42 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,25 +19,6 @@ void help(char *error)
     printf("%s%s%s\n", BRED, error, RES);
     printf("%sUsage: ./philo <n_philos> <time_to_die> <time_to_eat> <time_to_sleep> ", BMAG);
     printf("<time_to_sleep> [n_times_each_philospher_eat]\n");
-}
-void	print_info()
-{
-	// printf("\n%s********************* INPUT *********************\n|\n", BBLU);
-	// printf("|-->  %stotal Philos 🧙   =  %zu philos%s\n", \
-	// 								GRN, table.n_philos, BBLU);
-	// printf("|-->  %stime to die 💀    =  %zu ms%s\n", \
-	// 								RED, table.time_die, BBLU);
-	// printf("|-->  %stime to eat 🍝    =  %zu ms%s\n", \
-	// 								YEL, table.time_eat, BBLU);
-	// printf("|-->  %stime to sleep 😴  =  %zu ms%s\n", \
-	// 								CYN, table.time_sleep, BBLU);
-	// if (table.n_time_eat == -1)
-	// 	printf("|-->  %snumber meals 🥣   =  not specified%s\n", MAG, BBLU);
-	// else
-	// 	printf("|-->  %snumber meals 🥣   =  %zu meals%s\n", \
-	// 								MAG, table.n_time_eat, BBLU);
-	printf("\n\n           %s-- %s STARTING SIMULATION %s%s --%s\n\n", \
-									BGRN, GRNB, RES, BGRN, RES);
 }
 
 void print_action(t_action action, t_table *table,t_philo philo)
