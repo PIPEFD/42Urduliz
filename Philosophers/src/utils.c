@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 14:51:32 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/26 15:06:13 by codespace        ###   ########.fr       */
+/*   Updated: 2024/04/08 22:05:19 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ bool is_dead(t_philo *philo)
     
     last_meal = get_long(&philo->philo_mtx, &philo->last_meal_time);
     dif = get_time(MILISECONDS) -last_meal;
-    return (dif > philo->table->time_die)
+    return (dif > philo->table->time_die);
 
 }
 

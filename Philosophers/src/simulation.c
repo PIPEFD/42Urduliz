@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 13:36:24 by codespace         #+#    #+#             */
-/*   Updated: 2024/03/28 18:41:48 by codespace        ###   ########.fr       */
+/*   Updated: 2024/04/08 22:02:52 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ static void  *philo_routine(void *data)
             break;
         print_action(SLEEPING, philo->table, *philo);
         unsleep_mod(philo->table->time_sleep * 1e3, philo->table);
+        write(1, "Thinking\n", 10);
         thinking(philo);
     }
     return (NULL);

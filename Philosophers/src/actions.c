@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/26 15:15:41 by codespace         #+#    #+#             */
-/*   Updated: 2024/02/26 15:48:06 by codespace        ###   ########.fr       */
+/*   Updated: 2024/04/08 22:07:49 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void eating(t_philo *philo)
     print_action(EATING, philo->table, *philo);
     set_long(&philo->philo_mtx, &philo->last_meal_time, get_time(MILISECONDS));
     philo->meal_counter++;
-    if(philo->meal_counter == philo->table->n_times_eat)
-        philo->is_ful = true;
+    if(philo->meal_counter == philo->table->n_time_eat)
+        philo->is_full = true;
     usleep_mod(philo->table->time_eat * 1000, philo->table);
     pthread_mutex_unlock(&philo->first_fork->fork_mtx);
     pthread_mutex_unlock(&philo->second_fork->fork_mtx);    
@@ -31,9 +31,11 @@ void eating(t_philo *philo)
 void thinking(t_philo *philo)
 {
     long    t_think;
-    
+    write(1, "Thinking\n", 10);
     if (philo->table->n_philos % 2 == 0)
         return ;
+    // pthread_mutex_lock(&philo->first_fork->fork_mtx);
+    // print_action(THINKING, philo->table, *philo)
     t_think = (philo->table->time_eat * 2 - philo->table->time_sleep) * 1e3;
     if (t_think < 0)
         t_think = 0;
