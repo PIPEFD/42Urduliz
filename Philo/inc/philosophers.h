@@ -56,6 +56,7 @@ struct  s_philo
 struct s_table
 {
     long    n_philos;
+    long    full_philos;
     long    time_die;
     long    time_eat;
     long    time_sleep;

@@ -44,8 +44,7 @@ int main(int argc, char **argv)
     if (args_parsing(&table, argv))
         return (EXIT_FAILURE);
     if (table.n_philos < 1) 
-        return (EXIT_FAILURE);
-        
+        return (EXIT_FAILURE);        
     if (data_init(&table))
         return(EXIT_FAILURE);
     print_info(table);

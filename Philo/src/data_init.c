@@ -22,6 +22,7 @@ static int mem_alloc(t_table *table)
     table->all_philos_running = false;
     table->n_philos_running = 0;
     table->start_time = 0;
+    table->full_philos = 0;
     table->philos = malloc(table->n_philos * sizeof(t_philo));
     if (!table->philos) 
     {

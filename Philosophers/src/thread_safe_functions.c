@@ -45,9 +45,9 @@ void set_long(t_mtx *mutex, bool *property, long value)
     pthread_mutex_unlock(mutex);  
 }
 
-void increment_n_philos(_t_table *table)
+void increment_n_philos(t_table *table)
 {
-    pthread_mutex_lix(&table->table_mtx);
+    pthread_mutex_lock(&table->table_mtx);
     table->n_nphilos_running += 1
     if (table->n_philos_running == table->n_philos)
         seet_bool(&table->control_mtx &table->all_philos_running, true);

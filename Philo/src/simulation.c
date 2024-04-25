@@ -32,7 +32,7 @@ void *philo_routine(void *data)
     {
     //printf("philo routine %i\n", philo->id);
         eating(philo);
-        if(philo->is_full == true)
+        if (philo->table->full_philos == philo->table->n_philos)
             break;
         print_action(SLEEPING, philo->table, *philo);
         usleep_mod(philo->table->time_sleep * 1e3, philo->table);

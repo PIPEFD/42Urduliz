@@ -31,7 +31,6 @@ bool	all_philos_running(t_mtx *mutex, long *threads,
     {
 		ret = true;
     }
-    // printf("ret " );
 	pthread_mutex_unlock(mutex);
 	return (ret);
 }

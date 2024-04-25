@@ -24,7 +24,7 @@ void eating(t_philo *philo)
     set_long(&philo->philo_mtx, &philo->last_meal_time, get_time(MILISECONDS));
     philo->meal_counter++;
     if (philo->meal_counter == philo->table->n_time_eat)
-        philo->is_full = true;
+        philo->table->full_philos++;
     usleep_mod(philo->table->time_eat * 1e3, philo->table);
     pthread_mutex_unlock(&philo->first_fork->fork_mtx);
     pthread_mutex_unlock(&philo->second_fork->fork_mtx);    
