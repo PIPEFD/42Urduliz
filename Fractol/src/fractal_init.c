@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractal_init.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dbonilla <dbonilla@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 16:21:01 by event             #+#    #+#             */
-/*   Updated: 2024/03/19 03:45:43 by dbonilla         ###   ########.fr       */
+/*   Updated: 2024/04/16 22:02:12 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	events_init(t_fractal *fractal)
 	mlx_hook(fractal->mlx_window, 17, 1L << 17, &close_handler, fractal);
 	mlx_loop(fractal->mlx_connection);
 }
-
 void	data_init(t_fractal *fractal)
 {
 	fractal->hypo_value = 4;
