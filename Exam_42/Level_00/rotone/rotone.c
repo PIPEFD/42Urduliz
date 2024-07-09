@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 07:30:52 by codespace         #+#    #+#             */
-/*   Updated: 2024/04/16 07:41:08 by codespace        ###   ########.fr       */
+/*   Updated: 2024/07/04 17:02:36 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ void rotone(char *s)
         s++;
     } 
 }
-
 
 int main (int argc, char **argv)
 {
