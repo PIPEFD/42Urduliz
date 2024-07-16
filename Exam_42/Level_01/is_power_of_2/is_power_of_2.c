@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   first_word.c                                       :+:      :+:    :+:   */
+/*   is_power_of_2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/21 13:39:57 by codespace         #+#    #+#             */
-/*   Updated: 2024/07/09 17:16:49 by codespace        ###   ########.fr       */
+/*   Created: 2024/03/21 14:03:36 by codespace         #+#    #+#             */
+/*   Updated: 2024/07/15 13:44:15 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-// 🔍 Función para imprimir la primera palabra de una cadena
-void first_word(char *s)
+int is_power_of_2(unsigned int n)
 {
-    while (*s == 32 || *s == 9 )
-        s++;
-    
-    while (*s != 32 && *s != 9 && *s)
+    if (n <= 0)
+        return(0);
+    while (n != 1)
     {
-        write(1, &*s, 1);
-        s++;
+        if (n % 2 != 0)
+            return(0);
+        n /= 2;
     }
+    return(1);
+        
 }
 
-int main(int argc, char **argv)
+int main(void)
 {
-    if (argc == 2)
-        first_word(argv[1]);
-    write(1, "\n", 1);
+    int nbr = 1023;
+    
+    if (is_power_of_2(nbr))
+        printf("%u is power of 2", nbr);
+    else
+        printf("%u not is power of 2", nbr);
     return(0);
 }

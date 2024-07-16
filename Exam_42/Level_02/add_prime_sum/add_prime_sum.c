@@ -67,3 +67,14 @@ int main(int argc, char **argv)
     }
     return(0); 
 }
+
+
+// Examples:
+
+// $>./add_prime_sum 5
+// 10
+// $>./add_prime_sum 7 | cat -e
+// 17$
+// $>./add_prime_sum | cat -e
+// 0$
+// $>

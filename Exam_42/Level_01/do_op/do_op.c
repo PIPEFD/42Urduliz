@@ -1,18 +1,38 @@
-#include <unistd.h>
-#include <stdlib.h>
 #include <stdio.h>
+
+
+
+
+int ft_atoi (char *s)
+{
+    int sign = 1;
+    int result = 0;
+
+    while (*s ==  ' ' && (*s >= '0' && *s <= '9'))
+        s++;
+    if (*s == '-')
+        sign = -1;
+    if (*s == '-' || *s == '+')
+        s++;
+    while(*s >= '0' && *s <= '9')
+    {
+        result = result * 10 + *s - '0';
+        s++;
+    }
+    return(sign * result);
+
+}
+
 
 // ➕➖✖️➗✅ Función para realizar operaciones aritméticas básicas
 int do_op(char *n1, char *sign, char *n3)
 {
-    // 🧮 Convierte los números de cadena a enteros
-    int number1 = atoi(n1);
-    int number3 = atoi(n3);
+    int number1 = ft_atoi(n1);
+    int number3 = ft_atoi(n3);
 
-    // 🔁 Realiza la operación mientras ambos números sean diferentes de cero
     while (number1 && number3)
     {
-        // 🔍 Verifica el signo de la operación y realiza la operación correspondiente
+
         if (*sign == '+')
             return(printf("%d", (number1 + number3))); // ➕ Imprime la suma
         else if (*sign == '-')
@@ -22,16 +42,15 @@ int do_op(char *n1, char *sign, char *n3)
         else if (*sign == '/')
             return(printf("%d", (number1 / number3))); // ➗ Imprime la división
         else if (*sign == '%')
-            return(printf("%d", (number1 % number3))); // ✅ Imprime el residuo de la división
+            return(printf("%d", (number1 % number3))); // ✅ Imprime el modulo de la división
     }
     return(0);
 }
 
 int main (int argc, char **argv)
 {
-    // 🔍 Verifica si se proporcionaron tres argumentos
     if (argc == 4)
-        do_op(argv[1],argv[2],argv[3]); // 🔄 Llama a la función para realizar la operación
-    printf("\n"); // 🔠 Imprime una nueva línea
+        do_op(argv[1],argv[2],argv[3]);
+    printf("\n");
     return(0);
 }

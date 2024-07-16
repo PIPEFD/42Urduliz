@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 20:05:13 by codespace         #+#    #+#             */
-/*   Updated: 2024/04/16 15:37:12 by codespace        ###   ########.fr       */
+/*   Updated: 2024/07/15 15:29:50 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,39 +14,39 @@
 #include <stdlib.h>
 #include <stdlib.h>
 
-char    *ft_itoa(int nbr) // 📝 Función para convertir un entero a una cadena
+char    *ft_itoa(int nbr)
 {
-    int		len; // 📏 Longitud de la cadena resultante
-    long	n_tmp; // 🔄 Copia temporal del número
-    char	*str; // 📝 Cadena resultante
+    int		len;
+    long	n_tmp;
+    char	*str;
 
-    len = 0; // 📏 Inicializa la longitud a 0
-    n_tmp = nbr; // 🔄 Guarda una copia del número
-    if (nbr == -2147483648) // 🚫 Caso especial para el entero más pequeño
+    len = 0;
+    n_tmp = nbr;
+    if (nbr == -2147483648)
         return ("-2147483648");
-    if (!(str = (char *)malloc(sizeof(char) * len + 1))) // 💾 Asigna memoria para la cadena
-        return (NULL); // 🚫 Si la asignación falla, devuelve NULL
-    str[len] ='\0'; // 🚧 Coloca el carácter nulo al final de la cadena
-    if (nbr == 0) // 🚫 Caso especial para 0
+    if (!(str = (char *)malloc(sizeof(char) * len + 1)))
+        return (NULL);
+    str[len] ='\0';
+    if (nbr == 0)
     {
-        str[0] = '0'; // 📝 Escribe '0' en la cadena
-        return (str); // 📤 Devuelve la cadena
+        str[0] = '0';
+        return (str);
     }
-    if (nbr < 0) // 🔍 Si el número es negativo
+    if (nbr < 0)
     {
-        len += 1; // 📏 Aumenta la longitud para el signo '-'
-        nbr *= -1; // 🔄 Convierte el número a positivo
-        str[0] = '-'; // 📝 Escribe el signo '-' en la cadena
+        len += 1;
+        nbr *= -1;
+        str[0] = '-';
     }
-    while (n_tmp) // 🔁 Mientras que la copia del número no sea 0
+    while (n_tmp)
     {
-        n_tmp /= 10; // 🔄 Divide la copia del número por 10
-        len += 1; // 📏 Aumenta la longitud
+        n_tmp /= 10;
+        len += 1;
     }
-    while (nbr) // 🔁 Mientras que el número no sea 0
+    while (nbr)
     {
-        str[--len] = (nbr % 10) + '0'; // 📝 Escribe el dígito actual en la cadena
-        nbr /= 10; // 🔄 Divide el número por 10
+        str[--len] = (nbr % 10) + '0';
+        nbr /= 10;
     }
-    return (str); // 📤 Devuelve la cadena resultante
+    return (str);
 }

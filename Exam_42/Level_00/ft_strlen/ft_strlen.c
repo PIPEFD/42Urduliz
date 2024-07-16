@@ -14,10 +14,10 @@ int ft_strlen(char *s)
     return (size);
 }
 
-// int main (void)
-// {
-//     char str[] = "Hello World!";
-//     printf("%d\n", ft_strlen(str));
-//     printf("%ld\n", strlen(str));
+int main (void)
+{
+    char str[] = "Hello World!";
+    printf("%d\n", ft_strlen(str));
+    printf("%ld\n", strlen(str));
     
-// }
+}
