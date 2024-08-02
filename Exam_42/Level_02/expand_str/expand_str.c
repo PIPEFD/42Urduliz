@@ -2,26 +2,23 @@
 
 
 
-void expand_str(const char *s)
+void expand_str(const char *str)
 {
-    int i;
     int flag = 0;
-
-    i = 0;
-    while (s[i] == ' ' || s[i] == '\t')
-        i++;
-    while (s[i])
+    while(*str == ' ' || *str == '\t')
+        str++;
+    while(*str)
     {
-        if (s[i] == ' ' || s[i] == '\t')
+        if (*str == ' ' && *str == '\t')
             flag = 1;
         else
         {
-            if (flag)
-                write(1, "   ", 3);
-            flag = 0;
-            write(1, &s[i], 1);
+            if(flag)
+                write (1, "   ", 3);
+            flag = 1;
+            write(1, &*str, 1);
         }
-        i++;
+        str++;
     }
 }
 

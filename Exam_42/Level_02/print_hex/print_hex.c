@@ -4,12 +4,11 @@
 
 int print_hex(int nbr)
 {
-    char characters[] =  "0123456789abcdef";
-    printf("print_hex --> nbr %i\n", nbr);
+    char charac[] = "0123456789abcdef";
 
-    if (nbr >= 16)
+    if (nbr >=  16)
         print_hex(nbr / 16);
-    write(1, &characters[nbr % 16], 1);
+    write(1, &charac[nbr % 16], 1);
     return(0);
 }
 
@@ -29,7 +28,6 @@ int ft_atoi(char *s)
         result = result  *  10  + *s - '0';
         s++;
     }
-    printf("ft_atoi --> resul %i\n", result);
     return(sign * result);
 }
 

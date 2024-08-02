@@ -28,7 +28,7 @@ int main ()
     char str3[128] = "HOLA";
     char str4[128] = "MUNDA";
     printf("result->> %s\n", ft_strpbrk(str, str2));
-    printf("result->> %s\n", ft_strpbrk(str3, str4));
+    printf("result->> %s\n", strpbrk(str3, str4));
     return(0);
 
 }
