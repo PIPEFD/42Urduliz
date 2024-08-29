@@ -27,14 +27,16 @@ int *ft_rrange(int start, int end) {
             i++;
         }
     } 
-    else {
-        while (i < size) {
+    else 
+    {
+        while (i < size)
+        {
             range[i] = end + i;
             i++;
         }
     }
     
-    return range;
+    return (range);
 }
 
 

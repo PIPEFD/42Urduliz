@@ -5,8 +5,7 @@
 int print_hex(int nbr)
 {
     char charac[] = "0123456789abcdef";
-
-    if (nbr >=  16)
+    if(nbr >= 16)
         print_hex(nbr / 16);
     write(1, &charac[nbr % 16], 1);
     return(0);

@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 23:16:54 by codespace         #+#    #+#             */
-/*   Updated: 2024/07/03 13:56:51 by codespace        ###   ########.fr       */
+/*   Updated: 2024/08/28 13:02:53 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,8 @@ int ft_isalpha(int c)
 // Function to capitalize the first character of each word in a string.
 void str_capitalizer(char *str) {
     int new_word = 1;
-    if (!str) return;
+    if (!str) 
+        return;
     int i = 0;
     while (str[i] != '\0') 
     {

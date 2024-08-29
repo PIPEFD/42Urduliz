@@ -1,7 +1,5 @@
 #include <unistd.h>
 
-#include <unistd.h>
-
 // Función 'rostring' que maneja la lógica principal
 void rostring(char *str) {
     int i = 0;
@@ -21,7 +19,9 @@ void rostring(char *str) {
         while (str[i] && (str[i] == ' ' || str[i] == '\t')) {  // Salta espacios entre palabras
             i++;
         }
-        while (str[i] && (str[i] != ' ' && str[i] != '\t') && (str[i - 1] == ' ' || str[i - 1] == '\t')) {
+        while (str[i] && (str[i] != ' ' && str[i] != '\t') \
+            && (str[i - 1] == ' ' || str[i - 1] == '\t')) 
+        {
             while (str[i] && (str[i] != ' ' && str[i] != '\t')) {
                 write(1, &str[i], 1);
                 i++;

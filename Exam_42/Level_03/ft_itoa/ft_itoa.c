@@ -6,7 +6,7 @@
 /*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 20:05:13 by codespace         #+#    #+#             */
-/*   Updated: 2024/07/17 12:35:24 by codespace        ###   ########.fr       */
+/*   Updated: 2024/08/27 15:10:27 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@
 char *ft_itoa(int nbr)
 {
     int len  = 0;
-    long nbr_tmo = nbr;
+    long nbr_tmp = nbr;
     char *str;
 
     if (nbr == INT_MIN)
             return("-2147483648");
     if(!(str = (char *)malloc(sizeof(char) * len  + 1)))
         return(NULL);
-    while(nbr_tmo)
+    while(nbr_tmp)
     {
-        nbr_tmo /= 10;
+        nbr_tmp /= 10;
         len += 1;
     }
     while(nbr)
@@ -36,6 +36,42 @@ char *ft_itoa(int nbr)
     }
     return(str);
 }
+
+
+int main (int argc, char **argv)
+{
+    if (argc == 2)
+        printf("result itoa->> %s", ft_itoa(atoi(argv[1])));
+    printf("\n");
+    return(0);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // char *ft_itoa(int nbr)
 // {
@@ -110,11 +146,4 @@ char *ft_itoa(int nbr)
 //     }
 //     return (str);
 // }
-
-int main (int argc, char **argv)
-{
-    if (argc == 2)
-        printf("result itoa->> %s", ft_itoa(atoi(argv[1])));
-    printf("\n");
-    return(0);
 }

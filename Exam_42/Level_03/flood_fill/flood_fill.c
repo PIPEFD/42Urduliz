@@ -3,6 +3,7 @@
 #include "flood_fill.h"
 
 
+
 void fill(char **area,t_point size, t_point begin, char to_fill)
 {
 	if(begin.y < 0 || begin.y >= size.y || begin.x < 0 || begin.x >= size.x || area[begin.y][begin.x] !=  to_fill)

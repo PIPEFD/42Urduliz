@@ -28,7 +28,8 @@ int *ft_range(int start, int end)
             range[i] = start + i;
             i++;
         }
-    } else
+    } 
+    else
     {
         while (i < size) 
         {
