@@ -1,0 +1,31 @@
+Assignment name  : microshell
+Expected files   : microshell.c
+Allowed functions: malloc, free, write, close, fork, waitpid, signal, kill, exit, chdir, execve, dup, dup2, pipe, strcmp, strncmp
+--------------------------------------------------------------------------------------
+
+Escribe un programa que se comporte como si ejecutara un comando de shell:
+
+La línea de comandos a ejecutar será los argumentos de este programa.
+La ruta del ejecutable será absoluta o relativa, pero tu programa no debe construir una ruta (a partir de la variable PATH, por ejemplo).
+Debes implementar "|" y ";" como en bash:
+nunca intentaremos un "|" inmediatamente seguido o precedido de nada o "|" o ";".
+
+Tu programa debe implementar el comando integrado cd solo con una ruta como argumento (sin '-' o sin parámetros):
+si cd tiene el número incorrecto de argumentos, tu programa debería imprimir en STDERR "error: cd: bad arguments" seguido de un '\n'.
+
+
+si cd falla, tu programa debería imprimir en STDERR "error: cd: cannot change directory to path_to_change" seguido de un '\n',
+con path_to_change reemplazado por el argumento para cd.
+un comando cd nunca será inmediatamente seguido o precedido por un "|".
+No necesitas manejar ningún tipo de comodines (*, ~, etc.).
+No necesitas manejar variables de entorno ($BLA ...).
+Si una llamada al sistema, excepto execve y chdir, devuelve un error,
+tu programa debería imprimir inmediatamente "error: fatal" en STDERR seguido de un '\n' y el programa debería salir.
+Si execve falla, deberías imprimir "error: cannot execute executable_that_failed" en STDERR seguido de un '\n',
+con executable_that_failed reemplazado con la ruta del ejecutable fallido (debería ser el primer argumento de execve).
+Tu programa debería ser capaz de manejar más de cientos de "|" incluso si limitamos el número de "archivos abiertos" a menos de 30.
+Por ejemplo, esto debería funcionar: $>./microshell /bin/ls "|" /usr/bin/grep microshell ";" /bin/echo i love my microshell microshell i love my microshell $>
+
+Consejos: No olvides pasar la variable de entorno a execve.
+
+Consejos: ¡No dejes escapar los descriptores de archivo!
