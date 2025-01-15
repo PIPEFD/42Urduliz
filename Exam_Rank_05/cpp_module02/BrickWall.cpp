@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dummy.cpp                                          :+:      :+:    :+:   */
+/*   BrickWall.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pipe <pipe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/09 03:48:55 by pipe              #+#    #+#             */
-/*   Updated: 2025/01/09 14:33:07 by pipe             ###   ########.fr       */
+/*   Created: 2025/01/10 01:37:33 by pipe              #+#    #+#             */
+/*   Updated: 2025/01/10 01:42:49 by pipe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dummy.hpp"
+#include "BrickWall.hpp"
 
-Dummy::Dummy() : ATarget("Target Practice Dummy")
+BrickWall() :ATarget("Inconspicuous Red-brick Wall")
 {
     
 }
-Dummy::~Dummy()
-{
 
-}
-ATarget *Dummy::clone() const
+~BrickWall()
 {
-    return (new Dummy());
+    
+}
+*Atarget BrickWall::clone() const
+{
+    return(new BrickWall());
 }

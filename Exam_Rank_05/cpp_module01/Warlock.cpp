@@ -9,7 +9,7 @@ Warlock::Warlock(const std::string &name, const std::string &title) : _name(name
 
 Warlock::~Warlock()
 {
-    std::cout << _name << ": Mu job here is done!" << std::endl;
+    std::cout << _name << ": My job here is done!" << std::endl;
     for (std::map<std::string, ASpell*>::iterator it = _SpellBook.begin(); it != _SpellBook.end(); ++it)
         delete it->second;
     _SpellBook.clear();

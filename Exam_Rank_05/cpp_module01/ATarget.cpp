@@ -6,7 +6,7 @@
 /*   By: pipe <pipe@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 03:06:39 by pipe              #+#    #+#             */
-/*   Updated: 2025/01/09 04:38:47 by pipe             ###   ########.fr       */
+/*   Updated: 2025/01/09 14:17:15 by pipe             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,5 @@ std::string ATarget::getType() const
 
 void ATarget::getHitBySpell(ASpell const &spell) const
 {
-    std::cout << _type << " has been" << spell.getEffects() << "!" << std::endl;
+    std::cout << _type << " has been " << spell.getEffects() << "!" << std::endl;
 }
