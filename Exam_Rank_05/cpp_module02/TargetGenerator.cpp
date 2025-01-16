@@ -1,32 +1,27 @@
+
 #include "TargetGenerator.hpp"
 
 TargetGenerator::TargetGenerator()
 {
 
 }
-
-TargetGenerator::TargetGenerator(const TargetGenerator &other)
+TargetGenerator::TargetGenerator (const TargetGenerator &other)
 {
     *this = other;
 }
-
 TargetGenerator &TargetGenerator::operator=(const TargetGenerator &rhs)
 {
     _target = rhs._target;
-    return(*this);
+    return (*this);
 }
-
 TargetGenerator::~TargetGenerator()
 {
 
 }
-
-void TargetGenerator::learnTargetType(ATarget* target)
+void TargetGenerator::learnTargetType(ATarget *target)
 {
     if (target)
-    {
-        _target[target->getType()] = target;
-    }
+        _target[target->getType()] = target->clone();
 }
 void TargetGenerator::forgetTargetType(std::string const &target)
 {
@@ -35,11 +30,10 @@ void TargetGenerator::forgetTargetType(std::string const &target)
 }
 ATarget *TargetGenerator::createTarget(std::string const &target)
 {
-    ATarget* tmp = NULL;
-    if (_target.find(target) !=  _target.end())
-    {
+    ATarget *tmp = NULL;
+    if (_target.find(target) != _target.end())
         tmp = _target[target];
-    }
-    return (tmp);
-    
+    return(tmp);
+        
 }
+

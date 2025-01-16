@@ -3,30 +3,33 @@
 
 #include <iostream>
 #include <string>
-#include "ATarget.hpp"
+#include <map>
 #include "ASpell.hpp"
+#include "ATarget.hpp"
 #include "SpellBook.hpp"
-
 class Warlock
 {
     private:
         std::string _name;
         std::string _title;
+
+        
         SpellBook _SpellBook;
         Warlock();
-        Warlock(Warlock const &other);
-        Warlock &operator=(Warlock const &rhs);
+        Warlock &operator=(const Warlock &rhs);
+        Warlock(const Warlock &other);
     public:
-        Warlock(std::string const &name, std::string const &title);
-        ~Warlock();
-
-        void	setTitle(std::string const & newTitle);
-        std::string const &getName() const;
-        std::string const &getTitle() const;
-        void introduce();
+        Warlock (const std::string &title, const std::string &name);
+        void setTitle(const std::string &newTitle);
+        const std::string &getName() const;
+        const std::string &getTitle() const;
+        void introduce() const;
 
         void learnSpell(ASpell *spell);
-        void forgetSpell(std::string &SpellName);
-        void launchSpell(std::string SpellName, ATarget const &target);
+        void forgetSpell(std::string spellname);
+        void launchSpell(std::string spellName, ATarget const &target);
+
+        ~Warlock();
 };
+        
 #endif

@@ -1,4 +1,5 @@
 #ifndef FIREBALL_HPP
+
 #define FIREBALL_HPP
 
 #include "ASpell.hpp"
@@ -9,6 +10,8 @@ class Fireball : public ASpell
         Fireball();
         ~Fireball();
         ASpell *clone() const;
+
+        
 };
 
-#endif 
+#endif
